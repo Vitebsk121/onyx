@@ -1,9 +1,12 @@
 import React from "react";
+import MainLayout from "../HOC/MainLayout";
 
-const App = () => {
+const MainPage = () => {
   return (
-    <h1>Hello Onyx</h1>
+    <MainLayout title={'Главная'} >
+      <h1>Hello Onyx</h1>
+    </MainLayout >
   );
 };
 
-export default App;
+export default MainPage;
