@@ -1,18 +1,12 @@
-@font-face {
-  font-family: 'Gilroy';
-  src: local("Gilroy Regular");
-  font-weight: normal;
-  font-style: normal;
-}
+@import "theme";
 
 html,
 body,
 h1 {
   padding: 0;
   margin: 0;
-  font-family: Gilroy, sans-serif;
-  font-size: calc( (100vw - 320px)/(1980 - 320) * (24 - 20) + 20px);
-  line-height: 25px;
+  font-family: $font-family-main;
+  font-size: $font-size-main;
   font-weight: 500;
 }
 

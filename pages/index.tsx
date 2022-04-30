@@ -7,7 +7,8 @@ const MainPage = () => {
     <MainLayout title={'Главная'} >
       <section className={styles.promo}>
         <div className={styles.curtain}>
-          <h1 className={styles.title}>ONYX - Драгоценное качество деятельности</h1>
+          <h1 className={styles.title}>Onyx - Драгоценное качество деятельности</h1>
+          <h3 className={styles.subtitle}>Поставка нерудных материалов</h3>
         </div>
         <video
           className={styles.videoBackground}
