@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Header from "../components/Header/Header"
 import React from "react";
 
 
@@ -17,9 +18,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title = "",}: MainLay
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>ONYX Главная</header>
+      <Header />
       {children}
-      <footer>контакты ONYX</footer>
     </>
   );
 };

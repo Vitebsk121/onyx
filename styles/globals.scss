@@ -6,10 +6,24 @@
 }
 
 html,
-body {
+body,
+h1 {
   padding: 0;
   margin: 0;
   font-family: Gilroy, sans-serif;
+  font-size: calc( (100vw - 320px)/(1980 - 320) * (24 - 20) + 20px);
+  line-height: 25px;
+  font-weight: 500;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  > li {
+    width: fit-content;
+  }
 }
 
 a {
@@ -20,3 +34,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#__next {
+}
+
+//__________________________________
