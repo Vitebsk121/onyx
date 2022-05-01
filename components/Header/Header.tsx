@@ -21,10 +21,12 @@ const Header: React.FC<HeaderProps> = () => {
       }
     }
 
-    window.addEventListener('scroll',changeTheme)
+    changeTheme();
+
+    window.addEventListener('scroll',changeTheme);
 
     return () => {
-      window.removeEventListener('scroll', changeTheme)
+      window.removeEventListener('scroll', changeTheme);
     }
   }, [])
 
