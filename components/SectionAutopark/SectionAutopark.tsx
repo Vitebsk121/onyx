@@ -12,7 +12,7 @@ const SectionAutopark = () => {
       </Marquee>
       <div className={styles.wrapper}>
         <div className={styles.autoparkBlock}>
-          <Slider autoScrollTime={3500}>
+          <Slider autoScrollTime={5000}>
             <img className={styles.blockPic} src="/images/truck1.png" alt="truck"/>
             <img className={styles.blockPic} src="/images/driver1.png" alt="driver"/>
             <img className={styles.blockPic} src="/images/driver1.png" alt="driver"/>
@@ -24,7 +24,7 @@ const SectionAutopark = () => {
           <p>
             Cобственная ремонтная зона
           </p>
-          <Slider autoScrollTime={3500} autoScrollOrientation={'right'}>
+          <Slider autoScrollTime={5000} autoScrollOrientation={'right'}>
             <img className={styles.blockPic} src="/images/driver1.png" alt="driver"/>
             <img className={styles.blockPic} src="/images/driver1.png" alt="driver"/>
             <img className={styles.blockPic} src="/images/truck1.png" alt="truck"/>
