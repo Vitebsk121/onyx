@@ -1,32 +1,53 @@
 import styles from "./Header.module.scss"
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import OnyxLogo from "../OnyxLogo/OnyxLogo";
 
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
+  const [logoColor, setLogoColor] = useState('white');
+  const [headerStyle, setHeaderStyle] = useState('')
+
+  useEffect(() => {
+    const changeTheme = () => {
+      if(window.scrollY > 50) {
+        setLogoColor('black');
+        setHeaderStyle(styles.white);
+      } else {
+        setLogoColor('white');
+        setHeaderStyle('');
+      }
+    }
+
+    window.addEventListener('scroll',changeTheme)
+
+    return () => {
+      window.removeEventListener('scroll', changeTheme)
+    }
+  }, [])
+
   return (
-    <header className={styles.header}>
+    <header className={styles.header + ' ' + headerStyle}>
       <Link href={'https://nextjs.org/docs/basic-features/image-optimization'}>
         <a>
-          <OnyxLogo fill={"white"}/>
+          <OnyxLogo fill={logoColor}/>
         </a>
       </Link>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>
-            <Link href=""><a>Главная</a></Link>
+            <Link href="/"><a>Главная</a></Link>
           </li>
           <li className={styles.navItem}>
-            <Link href=""><a>Товары и услуги</a></Link>
+            <Link href="/"><a>Товары и услуги</a></Link>
           </li>
           <li className={styles.navItem}>
-            <Link href=""><a>Портфолио</a></Link>
+            <Link href="/"><a>Портфолио</a></Link>
           </li>
           <li className={styles.navItem}>
-            <Link href=""><a>Контакты</a></Link>
+            <Link href="/"><a>Контакты</a></Link>
           </li>
         </ul>
       </nav>
