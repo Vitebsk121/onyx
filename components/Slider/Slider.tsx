@@ -10,9 +10,11 @@ type SliderProps = {
 };
 
 const Slider: React.FC<SliderProps> = ( { children, autoScrollTime = 0, autoScrollOrientation = 'left'}: SliderProps) => {
+  const arrOfSlides = React.Children.toArray(children);
   const slidesCount = React.Children.count(children);
   const sliderFrame = useRef<HTMLDivElement>(null)
   const [slidesTranslateX, setSlidesTranslateX] = useState(0);
+  const [pickedSlideIndex, setPickedSlideIndex] = useState(0);
 
   const frameWidth = () => {
     if (sliderFrame.current === null) return 0;
@@ -30,6 +32,10 @@ const Slider: React.FC<SliderProps> = ( { children, autoScrollTime = 0, autoScro
     ));
   }
 
+  const pickSlide = (index: number) => {
+    setSlidesTranslateX(-index * frameWidth());
+  }
+
   useEffect(() => {
     if(!autoScrollTime) return;
     const autoScroll = setInterval(() => {
@@ -45,6 +51,10 @@ const Slider: React.FC<SliderProps> = ( { children, autoScrollTime = 0, autoScro
     return () => clearInterval(autoScroll);
   }, [])
 
+  useEffect(() => {
+    setPickedSlideIndex(Math.round(Math.abs(slidesTranslateX / frameWidth())));
+  }, [slidesTranslateX])
+
   return (
     <div className={styles.slider}>
       <button type="button" className={styles.sliderArrow + " " + styles.left} onClick={leftSlider}>
@@ -56,6 +66,13 @@ const Slider: React.FC<SliderProps> = ( { children, autoScrollTime = 0, autoScro
       <button type="button" className={styles.sliderArrow + " " + styles.right} onClick={rightSlider}>
         <Image src={ArrowSVG} />
       </button>
+      <div className={styles.scroll}>
+        {arrOfSlides.map((child, index) => {
+          const cls = [styles.scrollPoint]
+          if (index === pickedSlideIndex) cls.push(styles.active);
+          return <button key={index} type="button" className={cls.join(' ')} onClick={() => pickSlide(index)} />
+        })}
+      </div>
     </div>
   );
 };
