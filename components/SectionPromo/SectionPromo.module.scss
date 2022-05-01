@@ -1,0 +1,44 @@
+@import "styles/theme";
+
+.promo {
+  position: relative;
+}
+
+.title {
+  color: $color-tertiary;
+  font-size: $font-size-h1title;
+  max-width: 880px;
+}
+
+.subtitle {
+  color: $color-secondary;
+  max-width: 880px;
+  letter-spacing: 10px;
+}
+
+.curtain {
+  padding: 0 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.7);
+}
+
+
+.videoBackground {
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+@media screen and (max-width: 1500px) {
+  .curtain {
+    padding: 0 100px;
+  }
+}
