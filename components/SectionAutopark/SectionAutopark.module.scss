@@ -1,0 +1,33 @@
+@import "styles/theme";
+.autopark {
+  padding: 63px 0;
+  background-color: black;
+  color: $color-secondary;
+}
+
+.wrapper {
+  padding: 100px 200px;
+}
+
+.autoparkBlock {
+  display: grid;
+  gap: 60px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: stretch;
+  align-items: center;
+
+  & > p {
+    justify-self: center;
+  }
+}
+
+.blockPic {
+  width: 100%;
+}
+
+@media screen and(max-width: 1450px) {
+  .wrapper {
+    padding: 100px 100px;
+  }
+}
