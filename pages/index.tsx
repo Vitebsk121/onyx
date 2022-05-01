@@ -3,6 +3,7 @@ import MainLayout from "../HOC/MainLayout";
 import SectionPromo from "../components/SectionPromo/SectionPromo";
 import SectionPrivilege from "../components/SectionPrivilege/SectionPrivilege";
 import SectionAutopark from "../components/SectionAutopark/SectionAutopark";
+import SectionProjects from "../components/SectionProjects/SectionProjects";
 
 const MainPage = () => {
   return (
@@ -10,6 +11,7 @@ const MainPage = () => {
       <SectionPromo />
       <SectionPrivilege />
       <SectionAutopark />
+      <SectionProjects />
     </MainLayout >
   );
 };

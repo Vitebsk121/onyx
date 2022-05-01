@@ -1,0 +1,26 @@
+.projects {
+  padding: 80px 0 180px 0;
+}
+
+.wrapper {
+  padding: 84px 200px 0 200px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 40px;
+}
+
+.projectsCard {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 15px 20px rgba(34, 60, 80, 0.2);
+  }
+}
+
+.cardPic {
+  position: relative;
+  width: 100%;
+  height: 460px;
+}
