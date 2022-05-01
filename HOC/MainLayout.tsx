@@ -4,7 +4,7 @@ import React from "react";
 
 
 type MainLayoutProps = {
-  children: React.ReactNode
+  children: React.ReactNode,
   title: string
 };
 
