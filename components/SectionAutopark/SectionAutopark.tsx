@@ -20,12 +20,12 @@ const SectionAutopark = () => {
             {autoparkList.map(({image}, index) => (
               index === 0
               ? (
-                  <div ref={slideNode} className={styles.slide}>
+                  <div key={index} ref={slideNode} className={styles.slide}>
                     <Image src={image} alt="truck" layout={"fill"} objectFit={"cover"}/>
                   </div>
                 )
               : (
-                  <div className={styles.slide}>
+                  <div key={index} className={styles.slide}>
                     <Image src={image} alt="truck" layout={"fill"} objectFit={"cover"}/>
                   </div>
                 )
@@ -42,12 +42,12 @@ const SectionAutopark = () => {
             {autoparkList.map(({image}, index) => (
               index === 0
                 ? (
-                  <div ref={slideNode} className={styles.slide}>
+                  <div key={index} ref={slideNode} className={styles.slide}>
                     <Image src={image} alt="truck" layout={"fill"} objectFit={"cover"}/>
                   </div>
                 )
                 : (
-                  <div className={styles.slide}>
+                  <div key={index} className={styles.slide}>
                     <Image src={image} alt="truck" layout={"fill"} objectFit={"cover"}/>
                   </div>
                 )
