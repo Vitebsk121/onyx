@@ -10,12 +10,13 @@ const SectionPromo = () => {
       </div>
       <video
         className={styles.videoBackground}
-        src="/kar.mov"
-        preload="auto"
+        poster="/images/previewTruck.jpeg"
         autoPlay
         muted
         loop
-      />
+      >
+        <source src="/kar.mov"/>
+      </video>
     </section>
   );
 };
