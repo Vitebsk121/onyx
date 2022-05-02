@@ -6,8 +6,9 @@
 }
 
 $font-family-main: Gilroy, sans-serif;
-$font-size-main: calc( (100vw - 320px)/(1980 - 320) * (24 - 20) + 20px);
-$font-size-h1title: calc( (100vw - 320px)/(1980 - 320) * (80 - 24) + 24px);
+$font-size-main: calc( (100vw - 320px)/(1600 - 320) * (24 - 18) + 18px);
+$font-size-h1title: calc( (100vw - 320px)/(1600 - 320) * (80 - 24) + 24px);
+$font-size-h3title: calc( (100vw - 320px)/(1600 - 320) * (96 - 24) + 24px);
 
 $color-primary: rgb(0,0,0);
 $color-secondary: rgb(255, 255, 255);
