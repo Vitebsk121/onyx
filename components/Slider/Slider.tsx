@@ -1,35 +1,56 @@
 import styles from "./Slider.module.scss"
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import ArrowSVG from "../../public/icons/sliderArrow.svg"
 
 type SliderProps = {
   children: React.ReactNode,
   autoScrollTime?: number,
-  autoScrollOrientation?: 'left' | 'right'
+  autoScrollOrientation?: 'left' | 'right',
+  childrenRef: React.RefObject<HTMLDivElement>,
+  infinityScroll?: boolean,
+  dotScrollIsVisible?: boolean,
 };
 
-const Slider: React.FC<SliderProps> = ( { children, autoScrollTime = 0, autoScrollOrientation = 'left'}: SliderProps) => {
+const Slider: React.FC<SliderProps> = ( {
+                                          children,
+                                          autoScrollTime = 0,
+                                          autoScrollOrientation = 'left',
+                                          childrenRef,
+                                          infinityScroll = false,
+                                          dotScrollIsVisible = false,
+}: SliderProps) => {
   const arrOfSlides = React.Children.toArray(children);
   const slidesCount = React.Children.count(children);
-  const sliderFrame = useRef<HTMLDivElement>(null)
   const [slidesTranslateX, setSlidesTranslateX] = useState(0);
   const [pickedSlideIndex, setPickedSlideIndex] = useState(0);
 
   const frameWidth = () => {
-    if (sliderFrame.current === null) return 0;
-    return sliderFrame.current.offsetWidth;
+    if (childrenRef.current === null) return 0;
+    return childrenRef.current.offsetWidth;
   }
 
   const leftSlider = () => {
-    setSlidesTranslateX(prevState => (
-      prevState >= 0 ? -(slidesCount - 1) * frameWidth() : prevState + frameWidth()
-    ));
+    if (infinityScroll) {
+      setSlidesTranslateX(prevState => (
+        prevState >= 0 ? -(slidesCount * 2) * frameWidth() : prevState + frameWidth()
+      ));
+    } else {
+      setSlidesTranslateX(prevState => (
+        prevState >= 0 ? -(slidesCount - 1) * frameWidth() : prevState + frameWidth()
+      ));
+    }
   }
   const rightSlider = () => {
-    setSlidesTranslateX(prevState => (
-      Math.abs(prevState) >= (frameWidth() * (slidesCount - 1)) ? 0 : prevState - frameWidth()
-    ));
+    if (infinityScroll) {
+      setSlidesTranslateX(prevState => (
+        Math.abs(prevState) >= (frameWidth() * (slidesCount * 4)) ? -slidesCount * 2 * frameWidth() : prevState - frameWidth()
+      ));
+    } else {
+      setSlidesTranslateX(prevState => (
+        Math.abs(prevState) >= (frameWidth() * (slidesCount - 1)) ? 0 : prevState - frameWidth()
+      ));
+    }
   }
 
   const pickSlide = (index: number) => {
@@ -55,24 +76,44 @@ const Slider: React.FC<SliderProps> = ( { children, autoScrollTime = 0, autoScro
     setPickedSlideIndex(Math.round(Math.abs(slidesTranslateX / frameWidth())));
   }, [slidesTranslateX])
 
+  useEffect(() => {
+    if (infinityScroll) setSlidesTranslateX(-slidesCount * 2 * frameWidth());
+  }, [])
+
   return (
     <div className={styles.slider}>
       <button type="button" className={styles.sliderArrow + " " + styles.left} onClick={leftSlider}>
-        <Image src={ArrowSVG} style={{transform: "rotate(180deg)"}} />
+        <Image src={ArrowSVG} style={{transform: "rotate(180deg)"}} alt="Прокрутка влево" />
       </button>
-      <div ref={sliderFrame} className={styles.slides} style={{transform: `translateX(${slidesTranslateX}px)`}}>
-        {children}
+      <div className={styles.slides} style={{transform: `translateX(${slidesTranslateX}px)`}}>
+        {infinityScroll
+          ? (
+            <>
+              <div className={styles.infiniteSlidesGroup}>{children}</div>
+              <div className={styles.infiniteSlidesGroup}>{children}</div>
+              <div className={styles.infiniteSlidesGroup}>{children}</div>
+              <div className={styles.infiniteSlidesGroup}>{children}</div>
+              <div className={styles.infiniteSlidesGroup}>{children}</div>
+            </>
+          )
+          : children
+        }
       </div>
       <button type="button" className={styles.sliderArrow + " " + styles.right} onClick={rightSlider}>
-        <Image src={ArrowSVG} />
+        <Image src={ArrowSVG} alt="Прокрутка вправо" />
       </button>
-      <div className={styles.scroll}>
-        {arrOfSlides.map((child, index) => {
-          const cls = [styles.scrollPoint]
-          if (index === pickedSlideIndex) cls.push(styles.active);
-          return <button key={index} type="button" className={cls.join(' ')} onClick={() => pickSlide(index)} />
-        })}
-      </div>
+      {dotScrollIsVisible
+        ? (
+          <div className={styles.scroll}>
+            {arrOfSlides.map((child, index) => {
+              const cls = [styles.scrollPoint]
+              if (index === pickedSlideIndex) cls.push(styles.active);
+              return <button key={index} type="button" className={cls.join(' ')} onClick={() => pickSlide(index)} />
+            })}
+          </div>
+        )
+        : null
+      }
     </div>
   );
 };

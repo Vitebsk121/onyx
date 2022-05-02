@@ -22,8 +22,10 @@
   }
 }
 
-.blockPic {
+.slide {
+  position: relative;
   min-width: 100%;
+  min-height: 400px;
 }
 
 @media screen and(max-width: 1450px) {
