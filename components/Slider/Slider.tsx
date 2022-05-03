@@ -80,6 +80,14 @@ const Slider: React.FC<SliderProps> = ( {
     if (infinityScroll) setSlidesTranslateX(-slidesCount * 2 * frameWidth());
   }, [])
 
+  useEffect(() => {
+    const resetSliderSize = () => {
+      setSlidesTranslateX(0)
+    }
+    addEventListener("resize", resetSliderSize)
+    return () => removeEventListener("resize", resetSliderSize)
+  }, [])
+
   return (
     <div className={styles.slider}>
       <button type="button" className={styles.sliderArrow + " " + styles.left} onClick={leftSlider}>
