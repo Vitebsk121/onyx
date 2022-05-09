@@ -16,7 +16,12 @@ const SectionAutopark = () => {
       </Marquee>
       <div className={styles.wrapper}>
         <div className={styles.autoparkBlock}>
-          <Slider childrenRef={slideNode} autoScrollTime={5000} dotScrollIsVisible={true}>
+          <Slider
+            childrenRef={slideNode}
+            autoScrollTime={5000}
+            dotScrollIsVisible={true}
+            controls={false}
+          >
             {autoparkList.map(({image}, index) => (
               index === 0
               ? (
@@ -31,14 +36,20 @@ const SectionAutopark = () => {
                 )
             ))}
           </Slider>
-          <p>
+          <h4>
             Собственный автопарк импортной техники, более 30-ти автомобилей марок
             MAN и DAF и Scania
-          </p>
-          <p>
+          </h4>
+          <h4>
             Cобственная ремонтная зона
-          </p>
-          <Slider childrenRef={slideNode} autoScrollTime={5000} autoScrollOrientation={'right'} dotScrollIsVisible={true}>
+          </h4>
+          <Slider
+            childrenRef={slideNode}
+            autoScrollTime={5000}
+            autoScrollOrientation={'right'}
+            dotScrollIsVisible={true}
+            controls={false}
+          >
             {autoparkList.map(({image}, index) => (
               index === 0
                 ? (
