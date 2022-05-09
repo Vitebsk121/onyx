@@ -1,3 +1,5 @@
+@import "styles/theme";
+
 .projects {
   padding: 80px 0 180px 0;
 }
@@ -9,18 +11,19 @@
   gap: 40px;
 }
 
-.projectsCard {
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    box-shadow: 0 0 15px 20px rgba(34, 60, 80, 0.2);
-  }
-}
-
 .cardPic {
+  margin-bottom: 50px;
   position: relative;
   width: 100%;
   height: 460px;
+}
+
+.cardTitle {
+  margin-bottom: 27px;
+  font-family: $font-family-semiBold;
+  font-size: $font-size-h4title;
+}
+
+.cardDescription {
+  font-family: $font-family-regular;
 }

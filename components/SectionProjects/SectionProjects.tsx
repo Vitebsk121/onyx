@@ -8,15 +8,15 @@ const SectionProjects = () => {
   return (
     <div className={styles.projects}>
       <Marquee speed={50} gradient={false}>
-        <Image src={ProjectsLogo}/>
+        <Image src={ProjectsLogo} alt={"логотип проектов"}/>
       </Marquee>
       <div className={styles.wrapper}>
         {projectsList.map(({image, title, description}) => (
-          <div key={title} className={styles.projectsCard}>
+          <div key={title}>
             <div className={styles.cardPic}>
-              <Image src={image} layout={"fill"} objectFit={"cover"}/>
+              <Image src={image} alt={title} layout={"fill"} objectFit={"cover"}/>
             </div>
-            <h3 className={styles.cardTitle}>{title}</h3>
+            <h4 className={styles.cardTitle}>{title}</h4>
             <p className={styles.cardDescription}>{description}</p>
           </div>
         ))}
