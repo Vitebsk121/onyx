@@ -13,13 +13,12 @@
   margin: 80px 0;
   padding: 0 200px;
   color: $color-tertiary;
-  font-size: $font-size-h3title;
-  font-weight: bold;
+  font-size: $font-size-h2title;
+  font-family: $font-family-bold;
 }
 
 .slide,
 .serviceSlide {
-  margin: 0 1px;
   position: relative;
   min-width: 25%;
   min-height: 400px;
@@ -48,9 +47,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all .5s ease-in-out;
-  color: white;
+  color: $color-secondary;
+  font-family: $font-family-semiBold;
+  font-size: $font-size-subtitle;
 
   &:hover {
     background-color: $color-tertiary;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .title {
+    padding: 0 100px;
+  }
+  .servicesSlider {
+    padding: 0 100px;
   }
 }

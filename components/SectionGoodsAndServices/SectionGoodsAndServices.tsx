@@ -11,8 +11,8 @@ const SectionGoodsAndServices = () => {
   const nodeSecond = useRef(null);
   return (
     <div className={styles.goodsAndServices}>
-      <h3 className={styles.title}>товары</h3>
-      <Slider childrenRef={node} infinityScroll={true}>
+      <h2 className={styles.title}>товары</h2>
+      <Slider childrenRef={node} infinityScroll={true} shadow={true}>
         {goodsList.map(({image, title}, index) => {
           if(index === 0) {
             return (
@@ -35,9 +35,9 @@ const SectionGoodsAndServices = () => {
           }
         })}
       </Slider>
-      <h3 className={styles.title}>услуги</h3>
+      <h2 className={styles.title}>услуги</h2>
       <div className={styles.servicesSlider}>
-        <Slider childrenRef={nodeSecond} infinityScroll={true}>
+        <Slider childrenRef={nodeSecond} infinityScroll={true} shadow={false}>
           {servicesList.map(({image, title}, index) => {
             if(index === 0) {
               return (
