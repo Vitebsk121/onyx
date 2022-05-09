@@ -1,21 +1,23 @@
-import SandPic from '../public/images/sand.jpeg';
-import StonePic from '../public/images/stone.jpeg';
+import sandPic from '../public/images/sand.jpg';
+import stonePic from '../public/images/crushStone.jpg';
+import gravelPic from '../public/images/gravel.jpg';
+import dropoutPic from '../public/images/dropout.jpg';
 
 const goodsList = [
   {
-    image: SandPic,
-    title: "Песок",
+    image: gravelPic,
+    title: "Гравий",
   },
   {
-    image: StonePic,
+    image: stonePic,
     title: "Щебень",
   },
   {
-    image: SandPic,
+    image: sandPic,
     title: "Песок",
   },
   {
-    image: StonePic,
+    image: dropoutPic,
     title: "Щебень",
   },
 ]

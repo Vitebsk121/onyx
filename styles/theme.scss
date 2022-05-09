@@ -1,14 +1,40 @@
 @font-face {
-  font-family: 'Gilroy';
-  src: local("Gilroy Regular");
-  font-weight: normal;
+  font-family: 'Gilroy medium';
+  src: url("../public/fonts/gilroy/Gilroy-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilroy bold';
+  src: url("../public/fonts/gilroy/Gilroy-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilroy semibold';
+  src: url("../public/fonts/gilroy/Gilroy-Semibold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilroy regular';
+  src: url("../public/fonts/gilroy/Gilroy-regular.ttf");
+  font-weight: 400;
   font-style: normal;
 }
 
-$font-family-main: Gilroy, sans-serif;
-$font-size-main: calc( (100vw - 320px)/(1600 - 320) * (24 - 18) + 18px);
-$font-size-h1title: calc( (100vw - 320px)/(1600 - 320) * (80 - 24) + 24px);
-$font-size-h3title: calc( (100vw - 320px)/(1600 - 320) * (96 - 24) + 24px);
+
+$font-family-medium: Gilroy medium, sans-serif;
+$font-family-bold: Gilroy bold, sans-serif;
+$font-family-semiBold: Gilroy semibold, sans-serif;
+$font-family-regular: Gilroy regular, sans-serif;
+
+$font-size-main: calc( (100vw - 320px)/(1600 - 320) * (20 - 18) + 18px);
+$font-size-h1title: calc( (100vw - 320px)/(1600 - 320) * (75 - 24) + 24px);
+$font-size-h2title: calc( (100vw - 320px)/(1600 - 320) * (96 - 30) + 30px);
+$font-size-h3title: calc( (100vw - 320px)/(1600 - 320) * (36 - 20) + 20px);
+$font-size-h4title: calc( (100vw - 320px)/(1600 - 320) * (24 - 22) + 22px);
+$font-size-subtitle: calc( (100vw - 320px)/(1600 - 320) * (17 - 15) + 15px);
 
 $color-primary: rgb(0,0,0);
 $color-secondary: rgb(255, 255, 255);

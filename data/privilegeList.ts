@@ -1,46 +1,58 @@
+import clockIcon from "../public/icons/Iclock.svg";
+import calendarIcon from "../public/icons/calendar.svg";
+import PricingIcon from "../public/icons/pricing.svg";
+import speedIcon from "../public/icons/speed.svg";
+import supportIcon from "../public/icons/support.svg";
+import managersIcon from "../public/icons/managers.svg";
+import repairIcon from "../public/icons/repair.svg";
+import certificateIcon from "../public/icons/certificate.svg";
+import carIcon from "../public/icons/car.svg";
+import teamIcon from "../public/icons/team.svg";
+import friendshipIcon from "../public/icons/friendship.svg";
+
 const privilegeList = [
   {
-    icon: "/icons/Iclock.svg",
+    icon: clockIcon,
     title: "Круглосуточная работа",
   },
   {
-    icon: "/icons/calendar.svg",
+    icon: calendarIcon,
     title: "Более 5 лет на рынке",
   },
   {
-    icon: "/icons/pricing.svg",
+    icon: PricingIcon,
     title: "Доступные цены",
   },
   {
-    icon: "/icons/speed.svg",
+    icon: speedIcon,
     title: "Оперативная поставка материалов",
   },
   {
-    icon: "/icons/support.svg",
+    icon: supportIcon,
     title: "Техническая поддержка клиентов",
   },
   {
-    icon: "/icons/managers.svg",
+    icon: managersIcon,
     title: "Ответственные менеджеры сопровождают сделку",
   },
   {
-    icon: "/icons/repair.svg",
+    icon: repairIcon,
     title: "Автопарк обслуживается на собственной ремонтной базе",
   },
   {
-    icon: "/icons/certificate.svg",
+    icon: certificateIcon,
     title: "Материалы наших поставщиков соответствуют требованиям",
   },
   {
-    icon: "/icons/car.svg",
+    icon: carIcon,
     title: "Современная и собственная техника (тягачи MAN, DAF, Scania и полупри-цепы Grunwald)",
   },
   {
-    icon: "/icons/team.svg",
+    icon: teamIcon,
     title: "Ответственные водители",
   },
   {
-    icon: "/icons/friendship.svg",
+    icon: friendshipIcon,
     title: "состоим в Российско-Китайском деловом совете",
   },
 ]

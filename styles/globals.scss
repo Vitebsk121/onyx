@@ -4,12 +4,16 @@ html,
 body,
 h1,
 h3,
+h4,
 p, {
   padding: 0;
   margin: 0;
-  font-family: $font-family-main;
+
+}
+
+body {
+  font-family: $font-family-medium;
   font-size: $font-size-main;
-  font-weight: 500;
 }
 
 button {
@@ -37,6 +41,7 @@ a {
 }
 
 #__next {
+  overflow: hidden;
 }
 
 //__________________________________
