@@ -10,6 +10,8 @@ type SliderProps = {
   childrenRef: React.RefObject<HTMLDivElement>,
   infinityScroll?: boolean,
   dotScrollIsVisible?: boolean,
+  shadow?: boolean,
+  controls?: boolean,
 };
 
 const Slider: React.FC<SliderProps> = ( {
@@ -19,6 +21,8 @@ const Slider: React.FC<SliderProps> = ( {
                                           childrenRef,
                                           infinityScroll = false,
                                           dotScrollIsVisible = false,
+                                          shadow = false,
+                                          controls = true,
 }: SliderProps) => {
   const arrOfSlides = React.Children.toArray(children);
   const slidesCount = React.Children.count(children);
@@ -88,11 +92,31 @@ const Slider: React.FC<SliderProps> = ( {
     return () => removeEventListener("resize", resetSliderSize)
   }, [])
 
+
   return (
     <div className={styles.slider}>
-      <button type="button" className={styles.sliderArrow + " " + styles.left} onClick={leftSlider}>
-        <Image src={ArrowSVG} style={{transform: "rotate(180deg)"}} alt="Прокрутка влево" />
-      </button>
+      {shadow
+        ? (
+          <div
+            style={{width: `${frameWidth()}px`}}
+            className={styles.sliderShadow + ' ' + styles.shadowLeft}
+            onClick={leftSlider}
+          />
+        )
+        : null
+      }
+      {controls
+        ? (
+          <button
+            type="button"
+            className={styles.sliderArrow + " " + styles.left}
+            onClick={leftSlider}
+          >
+            <Image src={ArrowSVG} style={{transform: "rotate(180deg)"}} alt="Прокрутка влево" />
+          </button>
+        )
+        : null
+      }
       <div className={styles.slides} style={{transform: `translateX(${slidesTranslateX}px)`}}>
         {infinityScroll
           ? (
@@ -107,9 +131,28 @@ const Slider: React.FC<SliderProps> = ( {
           : children
         }
       </div>
-      <button type="button" className={styles.sliderArrow + " " + styles.right} onClick={rightSlider}>
-        <Image src={ArrowSVG} alt="Прокрутка вправо" />
-      </button>
+      {controls
+        ? (
+          <button
+            type="button"
+            className={styles.sliderArrow + " " + styles.right}
+            onClick={rightSlider}
+          >
+            <Image src={ArrowSVG} alt="Прокрутка вправо" />
+          </button>
+        )
+        : null
+      }
+      {shadow
+        ? (
+          <div
+            className={styles.sliderShadow + ' ' + styles.shadowRight}
+            style={{width: `${frameWidth()}px`}}
+            onClick={rightSlider}
+          />
+        )
+        : null
+      }
       {dotScrollIsVisible
         ? (
           <div className={styles.scroll}>
