@@ -11,7 +11,7 @@ import PikPic from '../public/images/partners/pik.png';
 import DskOnePic from '../public/images/partners/dsk_one.png';
 import StroyNerudPic from '../public/images/partners/stroy_nerud.png';
 import GaspromPic from '../public/images/partners/gasprom.png';
-import AlphaPic from '../public/images/partners/alpha.png';
+import AutobanPic from '../public/images/partners/autoban.png';
 
 const partners = [
   {
@@ -67,8 +67,8 @@ const partners = [
     image: GaspromPic,
   },
   {
-    name: 'Альфа',
-    image: AlphaPic,
+    name: 'Автобан',
+    image: AutobanPic,
   },
 ]
 
