@@ -8,7 +8,7 @@ import partners from "../../data/partners";
 
 const SectionProjects = () => {
   return (
-    <div className={styles.projects}>
+    <div className={styles.projects} id={"projects"}>
       <Marquee speed={50} gradient={false}>
         <Image src={ProjectsLogo} alt={"логотип проектов"}/>
       </Marquee>

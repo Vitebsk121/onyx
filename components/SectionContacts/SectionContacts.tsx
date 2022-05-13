@@ -10,7 +10,7 @@ type SectionContactsProps = {};
 
 const SectionContacts: React.FC<SectionContactsProps> = (props: SectionContactsProps) => {
   return (
-    <section className={styles.contacts}>
+    <section className={styles.contacts} id={'contacts'}>
       <Marquee speed={50} gradient={false}>
         <Image src={ContacrsLogo} alt={"логотип контактов"}/>
       </Marquee>

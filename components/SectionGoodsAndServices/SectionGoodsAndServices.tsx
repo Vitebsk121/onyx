@@ -10,15 +10,15 @@ const SectionGoodsAndServices = () => {
   const node = useRef(null);
   const nodeSecond = useRef(null);
   return (
-    <div className={styles.goodsAndServices}>
+    <div className={styles.goodsAndServices} id={'goodsAndServices'}>
       <h2 className={styles.title}>товары</h2>
       <Slider countOfVisibleElements={4} infinity={true} arrowPosition={{top: '50%', margin: '130px'}} shadow={true}>
-        {goodsList.map(({image, title}, index) => {
+        {goodsList.map(({image, title, name}, index) => {
           if(index === 0) {
             return (
               <div key={title + index} ref={node} className={styles.slide}>
                 <Image src={image} layout={"fill"} objectFit={"cover"} alt={"товар"}/>
-                <Link href="/">
+                <Link href={`/products/${name}`}>
                   <a className={styles.slideLink}>{title}</a>
                 </Link>
               </div>
@@ -27,7 +27,7 @@ const SectionGoodsAndServices = () => {
             return (
               <div key={title + index} className={styles.slide}>
                 <Image src={image} layout={"fill"} objectFit={"cover"} alt={"товар"}/>
-                <Link href="/">
+                <Link href={`/products/${name}`}>
                   <a className={styles.slideLink}>{title}</a>
                 </Link>
               </div>

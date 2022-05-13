@@ -43,13 +43,13 @@ const Header: React.FC<HeaderProps> = () => {
             <Link href="/"><a>Главная</a></Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/"><a>Товары и услуги</a></Link>
+            <Link href="/#goodsAndServices" scroll={false}><a>Товары и услуги</a></Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/"><a>Портфолио</a></Link>
+            <Link href="/#projects" scroll={false}><a>Портфолио</a></Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/"><a>Контакты</a></Link>
+            <Link href="/#contacts" scroll={false}><a>Контакты</a></Link>
           </li>
         </ul>
       </nav>
