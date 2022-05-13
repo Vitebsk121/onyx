@@ -1,0 +1,49 @@
+@import "styles/theme";
+
+.productPage {
+  background-color: $color-primary;
+}
+
+.sectionPromo {
+  padding: 332px 1109px 240px 200px;
+  position: relative;
+}
+
+.sectionBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.productPage_title {
+  font-family: $font-family-bold;
+  font-size: $font-size-h1title;
+  color: $color-secondary;
+  position: relative;
+  z-index: 100;
+}
+
+.sectionContent {
+  padding: 125px 200px;
+  font-family: $font-family-medium;
+  font-size: $font-size-main;
+  color: $color-secondary;
+
+  & > * {
+    margin-bottom: 20px;
+  }
+}
+
+.content_title {
+  font-family: $font-family-semiBold;
+  font-size: $font-size-h4title;
+}
+
+.contentCategoriesList {
+  list-style-type: disc;
+  list-style-position: inside;
+}
