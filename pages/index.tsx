@@ -5,6 +5,7 @@ import SectionPrivilege from "../components/SectionPrivilege/SectionPrivilege";
 import SectionAutopark from "../components/SectionAutopark/SectionAutopark";
 import SectionProjects from "../components/SectionProjects/SectionProjects";
 import SectionGoodsAndServices from "../components/SectionGoodsAndServices/SectionGoodsAndServices";
+import SectionContacts from "../components/SectionContacts/SectionContacts";
 
 const MainPage = () => {
   return (
@@ -14,6 +15,7 @@ const MainPage = () => {
       <SectionGoodsAndServices />
       <SectionProjects />
       <SectionAutopark />
+      <SectionContacts />
     </MainLayout >
   );
 };

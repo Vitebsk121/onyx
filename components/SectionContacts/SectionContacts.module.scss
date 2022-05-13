@@ -1,0 +1,42 @@
+@import "styles/theme";
+
+.contacts {
+  padding: 80px 0 120px 0;
+}
+
+.contacts_contentWrapper {
+  display: flex;
+  padding: 80px 200px 0;
+}
+
+.contacts_info {
+  max-width: 365px;
+  margin-right: 56px;
+  font-family: $font-family-regular;
+  font-size: $font-size-h4title;
+}
+
+.contacts_info_item {
+  margin-bottom: 17px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.contacts_info_title {
+  font-family: $font-family-bold;
+  margin-bottom: 17px;
+}
+
+.contacts_info_subtitle {
+  margin-bottom: 17px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.contacts_map {
+  width: 100%;
+}
