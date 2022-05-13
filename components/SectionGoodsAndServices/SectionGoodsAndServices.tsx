@@ -1,10 +1,10 @@
 import styles from  "./SectionGoodsAndServices.module.scss";
-import Slider from "../Slider/Slider";
 import Image from "next/image";
 import Link from "next/link";
 import {useRef} from "react";
 import goodsList from "../../data/goodsList";
 import servicesList from "../../data/servicesList";
+import Slider from "../Slider/Slider";
 
 const SectionGoodsAndServices = () => {
   const node = useRef(null);
@@ -12,7 +12,7 @@ const SectionGoodsAndServices = () => {
   return (
     <div className={styles.goodsAndServices}>
       <h2 className={styles.title}>товары</h2>
-      <Slider childrenRef={node} infinityScroll={true} shadow={true}>
+      <Slider countOfVisibleElements={4} infinity={true} arrowPosition={{top: '50%', margin: '130px'}} shadow={true}>
         {goodsList.map(({image, title}, index) => {
           if(index === 0) {
             return (
@@ -37,7 +37,7 @@ const SectionGoodsAndServices = () => {
       </Slider>
       <h2 className={styles.title}>услуги</h2>
       <div className={styles.servicesSlider}>
-        <Slider childrenRef={nodeSecond} infinityScroll={true} shadow={false}>
+        <Slider countOfVisibleElements={3} infinity={true} arrowPosition={{top: '50%', margin: '-50px'}}>
           {servicesList.map(({image, title}, index) => {
             if(index === 0) {
               return (

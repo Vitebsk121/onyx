@@ -18,7 +18,7 @@ const goodsList = [
   },
   {
     image: dropoutPic,
-    title: "Щебень",
+    title: "Отсев",
   },
 ]
 

@@ -1,19 +1,19 @@
-import DeliveryPic from "../public/images/delivery.jpeg";
+import SupplyPic from "../public/images/supply.jpeg";
 import ServicePic from "../public/images/servise.jpeg"
-import DeliveryPic2 from "../public/images/delivery2.jpeg";
+import DeliveryPic from "../public/images/delivery.jpg";
 
 const servicesList = [
   {
-    image: DeliveryPic,
+    image: SupplyPic,
     title: "Поставка",
+  },
+  {
+    image: DeliveryPic,
+    title: "Доставка",
   },
   {
     image: ServicePic,
     title: "Ремонт",
-  },
-  {
-    image: DeliveryPic2,
-    title: "Поставка2",
   },
 ]
 
