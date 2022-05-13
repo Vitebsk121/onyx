@@ -1,40 +1,21 @@
 @import "styles/theme";
+
 .slider {
-  overflow: hidden;
+  width: 100%;
+  height: fit-content;
   position: relative;
 }
 
-.sliderShadow {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 25%;
-  z-index: 100;
-
-  &.shadowLeft {
-    background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-    left: 0;
-  }
-
-  &.shadowRight {
-    background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-    right: 0;
-  }
-
-
-}
-
-.slides {
-  display: flex;
+.viewport {
   width: 100%;
-  height: 100%;
-  transition: transform 1.3s ease-in-out;
+  overflow: hidden;
 }
 
-.infiniteSlidesGroup {
+.slidesBox {
+  width: 100%;
   display: flex;
-  min-width: 100%;
-  height: 100%;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
 }
 
 .sliderArrow {
@@ -57,17 +38,10 @@
   &:active {
     transform: translateY(-50%) scale(0.95);
   }
-
-  &.left {
-    left: 15px;
-  }
-
-  &.right {
-    right: 15px;
-  }
 }
 
 .scroll {
+  display: flex;
   position: absolute;
   bottom: 30px;
   left: 50%;
@@ -85,10 +59,24 @@
   border-radius: 50%;
   background-color: transparent;
   border: 1px solid white;
-  cursor: pointer;
 
   &.active {
     background-color: $color-tertiary;
     border: none;
+  }
+}
+
+.shadow {
+  height: 100%;
+  background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  position: absolute;
+  top: 0;
+
+  &.left {
+    left: 0;
+    transform: rotate(180deg);
+  }
+  &.right {
+    right: 0;
   }
 }

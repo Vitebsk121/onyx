@@ -1,167 +1,198 @@
-import styles from "./Slider.module.scss"
-import React, {useEffect, useState} from "react";
-import Image from "next/image";
-import ArrowSVG from "../../public/icons/sliderArrow.svg"
+import styles from "./Slider.module.scss";
 
-type SliderProps = {
+import React, {useEffect, useRef, useState} from "react";
+import Image from "next/image";
+import ArrowSVG from "../../public/icons/sliderArrow.svg";
+
+type NewSliderProps = {
   children: React.ReactNode,
-  autoScrollTime?: number,
-  autoScrollOrientation?: 'left' | 'right',
-  childrenRef: React.RefObject<HTMLDivElement>,
-  infinityScroll?: boolean,
-  dotScrollIsVisible?: boolean,
+  countOfVisibleElements: number
+  arrowPosition?: {
+    top: string,
+    margin: string,
+  }
+  indicators?: boolean,
+  infinity?: boolean,
+  autoScroll?: {time: number, orientation: 'left' | 'right'},
   shadow?: boolean,
-  controls?: boolean,
 };
 
-const Slider: React.FC<SliderProps> = ( {
-                                          children,
-                                          autoScrollTime = 0,
-                                          autoScrollOrientation = 'left',
-                                          childrenRef,
-                                          infinityScroll = false,
-                                          dotScrollIsVisible = false,
-                                          shadow = false,
-                                          controls = true,
-}: SliderProps) => {
-  const arrOfSlides = React.Children.toArray(children);
-  const slidesCount = React.Children.count(children);
+const arrowPositionDefault = {
+  top: '50%',
+  margin: "15px",
+}
+
+const TRANSITION_DURATION = 600;
+
+const Slider: React.FC<NewSliderProps> = (
+  {
+children,
+countOfVisibleElements,
+arrowPosition = arrowPositionDefault,
+indicators = false,
+infinity = false,
+autoScroll = {time: 0, orientation: 'left'},
+shadow = false,
+  }: NewSliderProps) => {
+
+  const slideNode = useRef<HTMLDivElement>(null);
+  const slideBoxNode = useRef<HTMLDivElement>(null);
   const [slidesTranslateX, setSlidesTranslateX] = useState(0);
+  const [ slideBoxTransitionDuration, setSlideBoxTransition ] = useState(TRANSITION_DURATION);
   const [pickedSlideIndex, setPickedSlideIndex] = useState(0);
+  const arrOfSlides  = React.Children.toArray(children);
 
-  const frameWidth = () => {
-    if (childrenRef.current === null) return 0;
-    return childrenRef.current.offsetWidth;
+  const slideWidth = () => {
+    if (slideNode.current === null) return 0;
+    return slideNode.current.offsetWidth;
   }
 
-  const leftSlider = () => {
-    if (infinityScroll) {
-      setSlidesTranslateX(prevState => (
-        prevState >= 0 ? -(slidesCount * 2) * frameWidth() : prevState + frameWidth()
-      ));
+  const arrowStyle = (arrow: 'left' | 'right') => {
+    return arrow === 'left' ? {top: arrowPosition.top, left: arrowPosition.margin} : {top: arrowPosition.top, right: arrowPosition.margin}
+  }
+
+  const prevSlide = () => {
+    if (infinity) {
+      setSlidesTranslateX(prevState => prevState + slideWidth());
     } else {
-      setSlidesTranslateX(prevState => (
-        prevState >= 0 ? -(slidesCount - 1) * frameWidth() : prevState + frameWidth()
-      ));
-    }
-  }
-  const rightSlider = () => {
-    if (infinityScroll) {
-      setSlidesTranslateX(prevState => (
-        Math.abs(prevState) >= (frameWidth() * (slidesCount * 4)) ? -slidesCount * 2 * frameWidth() : prevState - frameWidth()
-      ));
-    } else {
-      setSlidesTranslateX(prevState => (
-        Math.abs(prevState) >= (frameWidth() * (slidesCount - 1)) ? 0 : prevState - frameWidth()
-      ));
-    }
-  }
+      setSlidesTranslateX(prevState => prevState >= 0 ? 0 : prevState + slideWidth());
+    }}
 
-  const pickSlide = (index: number) => {
-    setSlidesTranslateX(-index * frameWidth());
+  const nextSlide = () => {
+    if (infinity) {
+      setSlidesTranslateX(prevState => prevState - slideWidth())
+    } else {
+      setSlidesTranslateX(prevState => Math.abs(prevState) < slideWidth() * (arrOfSlides.length - countOfVisibleElements) ? prevState - slideWidth() : prevState)
+    }
   }
 
   useEffect(() => {
-    if(!autoScrollTime) return;
-    const autoScroll = setInterval(() => {
-      switch (autoScrollOrientation) {
+
+    if (!infinity) return;
+
+    const range = -(slideWidth() * arrOfSlides.length);
+
+    if (slidesTranslateX === 0) {
+      setTimeout(() => {
+        setSlideBoxTransition(0);
+        setSlidesTranslateX(range)
+      }, TRANSITION_DURATION)
+      return;
+    }
+    if (slidesTranslateX === range * 2) {
+      setTimeout(() => {
+        setSlideBoxTransition(0);
+        setSlidesTranslateX(range)
+      }, TRANSITION_DURATION)
+      return;
+    }
+  }, [arrOfSlides, infinity, slidesTranslateX]);
+
+  useEffect(() => {
+    if (slideBoxTransitionDuration === 0) {
+      setSlideBoxTransition(TRANSITION_DURATION);
+    }
+   }, [slideBoxTransitionDuration])
+
+  useEffect(() => {
+    const picked = Math.round(Math.abs(slidesTranslateX / slideWidth()));
+    if (infinity) {
+      if (picked > arrOfSlides.length - 1) {
+        setPickedSlideIndex(picked - arrOfSlides.length);
+      } else {
+        setPickedSlideIndex(picked);
+      }
+    } else {
+      setPickedSlideIndex(picked);
+    }
+  }, [arrOfSlides.length, infinity, slidesTranslateX]);
+
+  useEffect(() => {
+    if (infinity) {
+      const range = -(slideWidth() * arrOfSlides.length);
+      setSlidesTranslateX(range)
+    }
+  }, [arrOfSlides.length, infinity]);
+
+  useEffect(() => {
+    if (autoScroll.time === 0) return;
+    const autoScrollInterval = setInterval(() => {
+      switch (autoScroll.orientation) {
         case 'left':
-          leftSlider();
+          prevSlide();
           break;
         case 'right':
-          rightSlider();
+          nextSlide();
           break;
       }
-    }, autoScrollTime)
-    return () => clearInterval(autoScroll);
-  }, [])
-
-  useEffect(() => {
-    setPickedSlideIndex(Math.round(Math.abs(slidesTranslateX / frameWidth())));
-  }, [slidesTranslateX])
-
-  useEffect(() => {
-    if (infinityScroll) setSlidesTranslateX(-slidesCount * 2 * frameWidth());
-  }, [])
-
-  useEffect(() => {
-    const resetSliderSize = () => {
-      setSlidesTranslateX(0)
-    }
-    addEventListener("resize", resetSliderSize)
-    return () => removeEventListener("resize", resetSliderSize)
-  }, [])
-
+    }, autoScroll.time)
+    return () => clearInterval(autoScrollInterval);
+  }, [autoScroll.orientation, autoScroll.time, nextSlide, prevSlide])
 
   return (
     <div className={styles.slider}>
-      {shadow
-        ? (
-          <div
-            style={{width: `${frameWidth()}px`}}
-            className={styles.sliderShadow + ' ' + styles.shadowLeft}
-            onClick={leftSlider}
-          />
-        )
-        : null
-      }
-      {controls
-        ? (
-          <button
-            type="button"
-            className={styles.sliderArrow + " " + styles.left}
-            onClick={leftSlider}
-          >
-            <Image src={ArrowSVG} style={{transform: "rotate(180deg)"}} alt="Прокрутка влево" />
-          </button>
-        )
-        : null
-      }
-      <div className={styles.slides} style={{transform: `translateX(${slidesTranslateX}px)`}}>
-        {infinityScroll
-          ? (
-            <>
-              <div className={styles.infiniteSlidesGroup}>{children}</div>
-              <div className={styles.infiniteSlidesGroup}>{children}</div>
-              <div className={styles.infiniteSlidesGroup}>{children}</div>
-              <div className={styles.infiniteSlidesGroup}>{children}</div>
-              <div className={styles.infiniteSlidesGroup}>{children}</div>
-            </>
-          )
-          : children
-        }
+      <button
+        type="button"
+        className={styles.sliderArrow}
+        onClick={prevSlide}
+        style={arrowStyle('left')}
+      >
+        <Image src={ArrowSVG} style={{transform: "rotate(180deg)"}} alt="Прокрутка влево" />
+      </button>
+      <div className={styles.viewport}>
+        <div
+          className={styles.slidesBox}
+          style={{transform: `translateX(${slidesTranslateX}px)`,   transitionDuration: `${slideBoxTransitionDuration}ms`}}
+          ref={slideBoxNode}
+        >
+          { infinity
+            ? Array.prototype.concat(arrOfSlides, arrOfSlides, arrOfSlides).map((slide, index) => (
+              <div ref={slideNode} key={index} style={{minWidth: `${100/countOfVisibleElements}%`}}>
+                {slide}
+              </div>
+            ))
+            : arrOfSlides.map((slide, index) => (
+                <div ref={slideNode} key={index} style={{minWidth: `${100/countOfVisibleElements}%`}}>
+                  {slide}
+                </div>
+              ))
+          }
+        </div>
       </div>
-      {controls
-        ? (
-          <button
-            type="button"
-            className={styles.sliderArrow + " " + styles.right}
-            onClick={rightSlider}
-          >
-            <Image src={ArrowSVG} alt="Прокрутка вправо" />
-          </button>
-        )
-        : null
-      }
-      {shadow
-        ? (
-          <div
-            className={styles.sliderShadow + ' ' + styles.shadowRight}
-            style={{width: `${frameWidth()}px`}}
-            onClick={rightSlider}
-          />
-        )
-        : null
-      }
-      {dotScrollIsVisible
-        ? (
+      <button
+        type="button"
+        className={styles.sliderArrow + " " + styles.right}
+        onClick={nextSlide}
+        style={arrowStyle('right')}
+      >
+        <Image src={ArrowSVG} alt="Прокрутка вправо" />
+      </button>
+      {indicators
+      ? (
           <div className={styles.scroll}>
             {arrOfSlides.map((child, index) => {
               const cls = [styles.scrollPoint]
               if (index === pickedSlideIndex) cls.push(styles.active);
-              return <button key={index} type="button" className={cls.join(' ')} onClick={() => pickSlide(index)} />
+              return <div key={index} className={cls.join(' ')}/>
             })}
           </div>
+        )
+      : null
+      }
+      {shadow
+        ? (
+          <>
+            <div
+              className={[styles.shadow, styles.left].join(' ')}
+              style={{minWidth: `${100/countOfVisibleElements}%`}}
+              onClick={prevSlide}
+            />
+            <div
+              className={[styles.shadow, styles.right].join(' ')}
+              style={{minWidth: `${100/countOfVisibleElements}%`}}
+              onClick={nextSlide}
+            />
+          </>
         )
         : null
       }
