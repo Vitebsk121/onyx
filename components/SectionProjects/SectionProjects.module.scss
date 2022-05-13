@@ -5,10 +5,19 @@
 }
 
 .wrapper {
-  padding: 84px 200px 0 200px;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 40px;
+  margin-bottom: 40px;
+  padding: 84px 200px 0;
+}
+
+.projects_title {
+  margin-top: 40px;
+  font-family: $font-family-bold;
+  font-size: $font-size-h5title;
+  color: $color-tertiary;
+}
+
+.slide {
+  padding: 0 20px;
 }
 
 .cardPic {
@@ -26,4 +35,10 @@
 
 .cardDescription {
   font-family: $font-family-regular;
+}
+
+@media screen and (max-width: 1450px){
+  .wrapper {
+    padding: 84px 100px 0;
+  }
 }

@@ -1,22 +1,28 @@
 import AutobahnPic from "../public/images/autobahn.png";
-import StroyGazPic from "../public/images/stroyGaz.png";
-import CardPic3 from "../public/images/project3.png";
+import NorthHordPic from "../public/images/northHord.jpeg";
+import CcadPic from "../public/images/cCAD.jpeg";
+import ConcreteFactory from "../public/images/concrete_factory.jpeg";
 
 const projectsList = [
   {
     image: AutobahnPic,
-    title: "Автобан М-12",
-    description: "Создание дизайна для брендов и вовлечение людей, которые с ними взаимодействуют, — одна из основных целей нашей компании."
+    title: "Трасса М11 «Нева», автомагистраль М12",
+    description: "Мы занимались поставкой нерудных материалов при строительстве трасс М11 и М12"
   },
   {
-    image: StroyGazPic,
-    title: "Стройтрансгаз",
-    description: "Создание дизайна для брендов и вовлечение людей, которые с ними взаимодействуют, — одна из основных целей нашей компании."
+    image: NorthHordPic,
+    title: "Северо-восточная хорда",
+    description: "Мы принимали участие в поставке материалов для строительства СВХ"
   },
   {
-    image: CardPic3,
-    title: "Ещё проект",
-    description: "Создание дизайна для брендов и вовлечение людей, которые с ними взаимодействуют, — одна из основных целей нашей компании."
+    image: CcadPic,
+    title: "Центральная кольцевая автомобильная дорога",
+    description: "Мы осуществляли поставку материалов при строительстве ЦКАД"
+  },
+  {
+    image: ConcreteFactory,
+    title: "Бетонные заводы",
+    description: "Мы занимаемся поставкой щебня и песка на бетонные заводы Москвы и Московской области",
   },
 ]
 
