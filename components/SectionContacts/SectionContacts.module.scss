@@ -35,6 +35,11 @@
   &:last-child {
     margin-bottom: 0;
   }
+
+  & > a:hover {
+    opacity: 0.5;
+  }
+
 }
 
 .contacts_map {

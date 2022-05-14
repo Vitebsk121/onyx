@@ -24,20 +24,31 @@ const SectionContacts: React.FC<SectionContactsProps> = (props: SectionContactsP
           <div className={styles.contacts_info_item}>
             <h3 className={styles.contacts_info_title}>Контакты:</h3>
             <p className={styles.contacts_info_subtitle}>
-              Адрес: г. Балашиха, ул. Станция Стройка, вл 8
+              <a href="https://yandex.ru/maps/-/CCUFj0wQxA" target={"_blank"} rel="noreferrer">
+                Адрес: г. Балашиха, ул. Станция Стройка, вл 8
+              </a>
             </p>
             <p className={styles.contacts_info_subtitle}>
-              Телефон: +7 495 532 87 25, <br/>
-              +7 925 002 05 34
+              Телефон: <br/>
+              <a href='tel:+74955328725' target={"_blank"} rel="noreferrer">
+                +7 (495) 532 87 25,
+              </a>
+              <br/>
+              <a href="tel:+79250020534" target={"_blank"} rel="noreferrer">
+                +7 (925) 002 05 34
+              </a>
             </p>
             <p className={styles.contacts_info_subtitle}>
-              Почта: info@onyxnerud.ru
+              Почта:
+              <a href="mailto:info@onyxnerud.ru" target={"_blank"} rel="noreferrer"> info@onyxnerud.ru</a>
             </p>
           </div>
           <div className={styles.contacts_info_item}>
             <h3 className={styles.contacts_info_title}>Наша перевалка:</h3>
             <p className={styles.contacts_info_subtitle}>
-              г. Москва, Зеленый проспект, 3а
+              <a href="https://yandex.ru/maps/-/CCUFj8B08B" target={"_blank"} rel="noreferrer">
+                г. Москва, Зеленый проспект, 3а
+              </a>
             </p>
           </div>
         </div>
