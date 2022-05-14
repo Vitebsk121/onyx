@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = () => {
 
   return (
     <header className={styles.header + ' ' + headerStyle}>
-      <Link href={'https://nextjs.org/docs/basic-features/image-optimization'}>
+      <Link href={'/'}>
         <a>
           <OnyxLogo fill={logoColor}/>
         </a>
