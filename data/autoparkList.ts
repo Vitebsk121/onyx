@@ -1,7 +1,6 @@
 import Track from '../public/images/truck1.png';
 import Driver from '../public/images/driver1.png';
 
-
 const autoparkList = [
   {
     image: Track,
@@ -15,6 +14,6 @@ const autoparkList = [
   {
     image: Track,
   },
-]
+];
 
 export default autoparkList;

@@ -1,14 +1,13 @@
-import Head from "next/head"
-import Header from "../components/Header/Header"
-import React from "react";
-
+import Head from 'next/head';
+import Header from '../components/Header/Header';
+import React from 'react';
 
 type MainLayoutProps = {
-  children: React.ReactNode,
-  title: string
+  children: React.ReactNode;
+  title: string;
 };
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children, title = "",}: MainLayoutProps) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, title = '' }: MainLayoutProps) => {
   return (
     <>
       <Head>

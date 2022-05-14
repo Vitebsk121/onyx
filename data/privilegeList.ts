@@ -1,60 +1,60 @@
-import clockIcon from "../public/icons/Iclock.svg";
-import calendarIcon from "../public/icons/calendar.svg";
-import PricingIcon from "../public/icons/pricing.svg";
-import speedIcon from "../public/icons/speed.svg";
-import supportIcon from "../public/icons/support.svg";
-import managersIcon from "../public/icons/managers.svg";
-import repairIcon from "../public/icons/repair.svg";
-import certificateIcon from "../public/icons/certificate.svg";
-import carIcon from "../public/icons/car.svg";
-import teamIcon from "../public/icons/team.svg";
-import friendshipIcon from "../public/icons/friendship.svg";
+import clockIcon from '../public/icons/Iclock.svg';
+import calendarIcon from '../public/icons/calendar.svg';
+import PricingIcon from '../public/icons/pricing.svg';
+import speedIcon from '../public/icons/speed.svg';
+import supportIcon from '../public/icons/support.svg';
+import managersIcon from '../public/icons/managers.svg';
+import repairIcon from '../public/icons/repair.svg';
+import certificateIcon from '../public/icons/certificate.svg';
+import carIcon from '../public/icons/car.svg';
+import teamIcon from '../public/icons/team.svg';
+import friendshipIcon from '../public/icons/friendship.svg';
 
 const privilegeList = [
   {
     icon: clockIcon,
-    title: "Круглосуточная работа",
+    title: 'Круглосуточная работа',
   },
   {
     icon: calendarIcon,
-    title: "Более 5 лет на рынке",
+    title: 'Более 5 лет на рынке',
   },
   {
     icon: PricingIcon,
-    title: "Доступные цены",
+    title: 'Доступные цены',
   },
   {
     icon: speedIcon,
-    title: "Оперативная поставка материалов",
+    title: 'Оперативная поставка материалов',
   },
   {
     icon: supportIcon,
-    title: "Техническая поддержка клиентов",
+    title: 'Техническая поддержка клиентов',
   },
   {
     icon: managersIcon,
-    title: "Ответственные менеджеры сопровождают сделку",
+    title: 'Ответственные менеджеры сопровождают сделку',
   },
   {
     icon: repairIcon,
-    title: "Автопарк обслуживается на собственной ремонтной базе",
+    title: 'Автопарк обслуживается на собственной ремонтной базе',
   },
   {
     icon: certificateIcon,
-    title: "Материалы наших поставщиков соответствуют требованиям",
+    title: 'Материалы наших поставщиков соответствуют требованиям',
   },
   {
     icon: carIcon,
-    title: "Современная и собственная техника (тягачи MAN, DAF, Scania и полупри-цепы Grunwald)",
+    title: 'Современная и собственная техника (тягачи MAN, DAF, Scania и полупри-цепы Grunwald)',
   },
   {
     icon: teamIcon,
-    title: "Ответственные водители",
+    title: 'Ответственные водители',
   },
   {
     icon: friendshipIcon,
-    title: "состоим в Российско-Китайском деловом совете",
+    title: 'состоим в Российско-Китайском деловом совете',
   },
-]
+];
 
 export default privilegeList;

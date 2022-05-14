@@ -1,38 +1,38 @@
-import SupplyPic from "../public/images/supply.jpeg";
-import ServicePic from "../public/images/servise.jpeg"
-import DeliveryPic from "../public/images/delivery.jpg";
-import {StaticImageData} from "next/image";
+import SupplyPic from '../public/images/supply.jpeg';
+import ServicePic from '../public/images/servise.jpeg';
+import DeliveryPic from '../public/images/delivery.jpg';
+import { StaticImageData } from 'next/image';
 import MapSVG from '../public/map.svg';
 
 export interface IServices {
-  name: string,
-  image: StaticImageData,
-  title: string,
-  secondaryTitle: string,
-  description?: string[],
+  name: string;
+  image: StaticImageData;
+  title: string;
+  secondaryTitle: string;
+  description?: string[];
   content?: {
-    title: string,
-    subtitles: string[],
-  },
-  map?: StaticImageData,
+    title: string;
+    subtitles: string[];
+  };
+  map?: StaticImageData;
   repairInfo?: {
-    title: string,
-    list: string[],
-  }[],
+    title: string;
+    list: string[];
+  }[];
   repairContacts?: {
-    title: string,
+    title: string;
     linksList: {
-      link: string,
-      linkName: string,
-    }[],
-  },
+      link: string;
+      linkName: string;
+    }[];
+  };
 }
 
 const servicesList: IServices[] = [
   {
     name: 'supply',
     image: SupplyPic,
-    title: "Поставка",
+    title: 'Поставка',
     secondaryTitle: 'Поставка нерудных материалов',
     description: [
       'Компания ОНИКС занимает одну из лидирующих ролей в поставке нерудных материалов по Москве, Московской области и регионам России.',
@@ -51,7 +51,7 @@ const servicesList: IServices[] = [
   {
     name: 'delivery',
     image: DeliveryPic,
-    title: "Доставка",
+    title: 'Доставка',
     secondaryTitle: 'Транспортные услуги по доставке нерудных материалов',
     description: [
       'Компания ОНИКС имеет более 30 единиц современной техники от ведущих мировых производителей. Тягачи марок MAN, DAF, Scania, полуприцепы марки Grunwald.',
@@ -62,7 +62,7 @@ const servicesList: IServices[] = [
   {
     name: 'repair',
     image: ServicePic,
-    title: "Ремонт",
+    title: 'Ремонт',
     secondaryTitle: 'Сервис по ремонту автомобилей MAN, DAF, полуприцепов Grunwald',
     content: {
       title: 'У нас есть своя ремонтная база грузовых автомобилей.',
@@ -130,6 +130,6 @@ const servicesList: IServices[] = [
       ],
     },
   },
-]
+];
 
 export default servicesList;

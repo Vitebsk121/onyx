@@ -1,5 +1,5 @@
-import styles from "./SectionPromo.module.scss"
-import React from "react";
+import styles from './SectionPromo.module.scss';
+import React from 'react';
 
 const SectionPromo = () => {
   return (
@@ -15,7 +15,7 @@ const SectionPromo = () => {
         muted
         loop
       >
-        <source src="/kar.mov"/>
+        <source src="/kar.mov" />
       </video>
     </section>
   );

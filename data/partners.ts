@@ -16,7 +16,7 @@ import AutobanPic from '../public/images/partners/autoban.png';
 const partners = [
   {
     name: 'Мираторг',
-    image:MiratorgPic,
+    image: MiratorgPic,
   },
   {
     name: 'Трак бетон',
@@ -70,6 +70,6 @@ const partners = [
     name: 'Автобан',
     image: AutobanPic,
   },
-]
+];
 
 export default partners;
