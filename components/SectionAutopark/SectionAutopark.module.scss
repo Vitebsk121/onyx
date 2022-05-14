@@ -1,9 +1,14 @@
 @import "styles/theme";
 
 .autopark {
-  padding: 63px 0 180px 0;
+  padding: 63px 0 100px 0;
   background-color: black;
   color: $color-secondary;
+}
+
+.autoparkLogo {
+  width: 152vw;
+  position: relative;
 }
 
 .wrapper {

@@ -10,7 +10,9 @@ const SectionAutopark = () => {
   return (
     <section className={styles.autopark}>
       <Marquee speed={50} gradient={false}>
-        <Image src={AutoparkLogo} alt={'автопарк логотип'} />
+        <div className={styles.autoparkLogo}>
+          <Image src={AutoparkLogo} alt={'автопарк логотип'} layout={'responsive'}/>
+        </div>
       </Marquee>
       <div className={styles.wrapper}>
         <div className={styles.autoparkBlock}>

@@ -10,7 +10,9 @@ const SectionProjects = () => {
   return (
     <div className={styles.projects} id={'projects'}>
       <Marquee speed={50} gradient={false}>
-        <Image src={ProjectsLogo} alt={'логотип проектов'} />
+        <div className={styles.projectsLogo}>
+          <Image src={ProjectsLogo} alt={'логотип проектов'} layout={'responsive'}/>
+        </div>
       </Marquee>
       <div className={styles.wrapper}>
         <Slider countOfVisibleElements={3} arrowPosition={{ top: '40%', margin: '-30px' }}>
@@ -28,7 +30,9 @@ const SectionProjects = () => {
       </div>
       <Marquee speed={100} gradient={false}>
         {partners.map(({ name, image }) => (
-          <Image key={name} src={image} alt={name} />
+          <div key={name} className={styles.partnersItem}>
+            <Image src={image} alt={name} layout={'fill'} objectFit={'contain'} />
+          </div>
         ))}
       </Marquee>
     </div>
