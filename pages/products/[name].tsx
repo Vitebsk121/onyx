@@ -3,6 +3,7 @@ import React from "react";
 import MainLayout from "../../HOC/MainLayout";
 import goodsList, {IGoods} from "../../data/goodsList";
 import Image from "next/image";
+import Slider from "../../components/Slider/Slider";
 
 type Tfunc = {
   product: IGoods
@@ -11,7 +12,7 @@ type Tfunc = {
 
 export default function product({product}: Tfunc) {
   return (
-    <MainLayout title={'product'} >
+    <MainLayout title={product.title} >
       <div className={styles.productPage}>
         <section className={styles.sectionPromo}>
           <div className={styles.sectionBackground}>
@@ -42,6 +43,23 @@ export default function product({product}: Tfunc) {
           {product.content.subtitles && product.content.subtitles.map((item) => (
             <p key={item} className={styles.content_description}>{item}</p>
           ))}
+          {product.slider && (
+            <div className={styles.slider_wrapper}>
+              <Slider countOfVisibleElements={2} arrowPosition={{top: '15%', margin: '-30px'}} infinity={true}>
+                {product.slider.map(({image,title,descriptions}) => (
+                  <div key={title} className={styles.slide}>
+                    <div className={styles.slidePic}>
+                      <Image src={image} layout={"fill"} objectFit={"cover"} alt={title}/>
+                    </div>
+                    <h4 className={styles.slideTitle}>{title}</h4>
+                    {descriptions.map((descr) => (
+                      <p key={descr} className={styles.slideDescription}>{descr}</p>
+                    ))}
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          )}
         </section>
       </div>
     </MainLayout>
