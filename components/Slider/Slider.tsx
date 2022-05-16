@@ -15,6 +15,16 @@ type NewSliderProps = {
   infinity?: boolean;
   autoScroll?: { time: number; orientation: 'left' | 'right' };
   shadow?: boolean;
+  arrows?: boolean,
+  viewportSetting?: {
+    viewport: {
+      width: string,
+      overflow: string,
+    },
+    slider: {
+      overflow: string,
+    },
+  }
 };
 
 const arrowPositionDefault = {
@@ -32,13 +42,27 @@ const Slider: React.FC<NewSliderProps> = ({
   infinity = false,
   autoScroll = { time: 0, orientation: 'left' },
   shadow = false,
+  arrows = true,
+  viewportSetting = {
+    viewport: {
+      width: '100%',
+      overflow: 'hidden',
+    },
+    slider: {
+      overflow: 'visible',
+    },
+  }
 }: NewSliderProps) => {
+  const minSwipeDistance = 50;
+
   const slideNode = useRef<HTMLDivElement>(null);
   const slideBoxNode = useRef<HTMLDivElement>(null);
   const [slidesTranslateX, setSlidesTranslateX] = useState(0);
   const [slideBoxTransitionDuration, setSlideBoxTransition] = useState(TRANSITION_DURATION);
   const [pickedSlideIndex, setPickedSlideIndex] = useState(0);
   const arrOfSlides = React.Children.toArray(children);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const slideWidth = () => {
     if (slideNode.current === null) return 0;
@@ -75,6 +99,7 @@ const Slider: React.FC<NewSliderProps> = ({
     if (!infinity) return;
 
     const range = -(slideWidth() * arrOfSlides.length);
+
 
     if (slidesTranslateX === 0) {
       setTimeout(() => {
@@ -116,7 +141,7 @@ const Slider: React.FC<NewSliderProps> = ({
       const range = -(slideWidth() * arrOfSlides.length);
       setSlidesTranslateX(range);
     }
-  }, [arrOfSlides.length, infinity]);
+  }, [slideNode.current?.offsetWidth]);
 
   useEffect(() => {
     if (autoScroll.time === 0) return;
@@ -133,17 +158,53 @@ const Slider: React.FC<NewSliderProps> = ({
     return () => clearInterval(autoScrollInterval);
   }, [autoScroll.orientation, autoScroll.time, nextSlide, prevSlide]);
 
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) =>
+    setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (touchStart === 0 || touchEnd === 0) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe || isRightSwipe) {
+      isLeftSwipe ? nextSlide() : prevSlide();
+    }
+  };
+
   return (
-    <div className={styles.slider}>
-      <button
-        type="button"
-        className={styles.sliderArrow}
-        onClick={prevSlide}
-        style={arrowStyle('left')}
-      >
-        <Image src={ArrowSVG} style={{ transform: 'rotate(180deg)' }} alt="Прокрутка влево" />
-      </button>
-      <div className={styles.viewport}>
+    <div
+      className={styles.slider}
+      style={{overflow: viewportSetting.slider.overflow}}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
+      {arrows && (
+        <>
+          <button
+            type="button"
+            className={styles.sliderArrow}
+            onClick={prevSlide}
+            style={arrowStyle('left')}
+          >
+            <Image src={ArrowSVG} style={{ transform: 'rotate(180deg)' }} alt="Прокрутка влево" />
+          </button>
+          <button
+            type="button"
+            className={styles.sliderArrow + ' ' + styles.right}
+            onClick={nextSlide}
+            style={arrowStyle('right')}
+          >
+            <Image src={ArrowSVG} alt="Прокрутка вправо" />
+          </button>
+        </>
+      )}
+      <div className={styles.viewport} style={{width: viewportSetting.viewport.width, overflow: viewportSetting.viewport.overflow}}>
         <div
           className={styles.slidesBox}
           style={{
@@ -173,14 +234,6 @@ const Slider: React.FC<NewSliderProps> = ({
               ))}
         </div>
       </div>
-      <button
-        type="button"
-        className={styles.sliderArrow + ' ' + styles.right}
-        onClick={nextSlide}
-        style={arrowStyle('right')}
-      >
-        <Image src={ArrowSVG} alt="Прокрутка вправо" />
-      </button>
       {indicators ? (
         <div className={styles.scroll}>
           {arrOfSlides.map((child, index) => {
