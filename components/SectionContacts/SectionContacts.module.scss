@@ -7,6 +7,7 @@
 .contactsLogo {
   position: relative;
   width: 134vw;
+  min-width: 885px;
 }
 
 .contacts_contentWrapper {
@@ -57,5 +58,26 @@
 @media screen and(max-width: 1450px) {
   .contacts_contentWrapper {
     padding: 80px 100px 0;
+  }
+}
+
+@media screen and(max-width: 650px) {
+  .contacts {
+    padding: 55px 0 0;
+  }
+  .contacts_contentWrapper {
+    flex-direction: column;
+    padding: 25px 0 0;
+    align-items: center;
+  }
+  .contacts_info {
+    padding: 0 70px;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 25px;
+  }
+
+  .contacts_map {
+    height: 320px;
   }
 }

@@ -21,7 +21,8 @@
 .serviceSlide {
   position: relative;
   min-width: 25%;
-  min-height: 400px;
+  min-height: 180px;
+  height: 25vw;
   transition: transform 0.5s ease-in-out;
 
   &:hover {
@@ -62,5 +63,19 @@
   }
   .servicesSlider {
     padding: 0 100px;
+  }
+}
+
+@media screen and (max-width:650px) {
+  .goodsAndServices {
+    padding: 1px 0 50px;
+  }
+  .title {
+    margin: 50px 0;
+    padding: 0;
+    text-align: center;
+  }
+  .servicesSlider {
+    padding: 0;
   }
 }

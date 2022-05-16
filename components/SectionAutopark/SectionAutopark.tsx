@@ -21,6 +21,7 @@ const SectionAutopark = () => {
             infinity={true}
             indicators={true}
             autoScroll={{ time: 3000, orientation: 'right' }}
+            arrows={false}
           >
             {autoparkList.map(({ image }, index) => (
               <div key={index} className={styles.slide}>
@@ -28,15 +29,16 @@ const SectionAutopark = () => {
               </div>
             ))}
           </Slider>
-          <h4>
+          <h4 >
             Собственный автопарк импортной техники, более 30-ти автомобилей марок MAN и DAF и Scania
           </h4>
-          <h4>Cобственная ремонтная зона</h4>
+          <h4 >Cобственная ремонтная зона</h4>
           <Slider
             countOfVisibleElements={1}
             infinity={true}
             indicators={true}
             autoScroll={{ time: 3000, orientation: 'left' }}
+            arrows={false}
           >
             {autoparkList.map(({ image }, index) => (
               <div key={index} className={styles.slide}>

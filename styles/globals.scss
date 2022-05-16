@@ -15,6 +15,7 @@ p, {
 body {
   font-family: $font-family-medium;
   font-size: $font-size-main;
+  touch-action: none;
 }
 
 button {

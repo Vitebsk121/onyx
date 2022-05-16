@@ -5,8 +5,31 @@ import ProjectsLogo from '../../public/projects.svg';
 import projectsList from '../../data/projectsList';
 import Slider from '../Slider/Slider';
 import partners from '../../data/partners';
+import {useEffect, useState} from "react";
+
+
+const defaultSliderSettings = {
+  countVisibleSlides: 3,
+  arrowPosition: { top: '40%', margin: '-30px' },
+}
 
 const SectionProjects = () => {
+  const [sliderSettings, setSliderSettings] = useState(defaultSliderSettings)
+  useEffect(() => {
+    const changeSLiderProp = () => {
+      if (document.documentElement.clientWidth <= 650) {
+        setSliderSettings({
+          countVisibleSlides: 1,
+          arrowPosition: { top: '35%', margin: '-15px' },
+        })
+      } else {
+        setSliderSettings(defaultSliderSettings)
+      }
+    }
+    addEventListener('resize', changeSLiderProp);
+    changeSLiderProp();
+    return () => removeEventListener('resize', changeSLiderProp);
+  }, [])
   return (
     <div className={styles.projects} id={'projects'}>
       <Marquee speed={50} gradient={false}>
@@ -15,7 +38,7 @@ const SectionProjects = () => {
         </div>
       </Marquee>
       <div className={styles.wrapper}>
-        <Slider countOfVisibleElements={3} arrowPosition={{ top: '40%', margin: '-30px' }}>
+        <Slider countOfVisibleElements={sliderSettings.countVisibleSlides} arrowPosition={sliderSettings.arrowPosition}>
           {projectsList.map(({ image, title, description }) => (
             <div key={title} className={styles.slide}>
               <div className={styles.cardPic}>

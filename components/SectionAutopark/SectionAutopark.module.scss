@@ -8,6 +8,7 @@
 
 .autoparkLogo {
   width: 152vw;
+  min-width: 902px;
   position: relative;
 }
 
@@ -32,8 +33,10 @@
 
 .slide {
   position: relative;
+  height: 25vw;
+  min-height: 226px;
+  max-height: 400px;
   min-width: 100%;
-  min-height: 400px;
 }
 
 @media screen and(max-width: 1450px) {
@@ -41,3 +44,26 @@
     padding: 100px 100px;
   }
 }
+
+@media screen and(max-width: 650px) {
+  .autopark {
+    padding: 55px 0 55px 0;
+    background-color: black;
+    color: $color-secondary;
+  }
+
+  .wrapper {
+    padding: 55px 0;
+  }
+
+  .autoparkBlock {
+    grid-template-columns: 1fr;
+    gap: 23px;
+    grid-template-rows: none;
+
+    & > h4 {
+      text-align: center;
+    }
+  }
+}
+
