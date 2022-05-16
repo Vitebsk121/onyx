@@ -1,5 +1,5 @@
 import styles from './Product.module.scss';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import MainLayout from '../../HOC/MainLayout';
 import goodsList, { IGoods } from '../../data/goodsList';
 import Image from 'next/image';
@@ -9,7 +9,30 @@ type Tfunc = {
   product: IGoods;
 };
 
-export default function product({ product }: Tfunc) {
+const defaultSliderSettings = {
+  countVisibleSlides: 3,
+  arrowPosition: { top: '15%', margin: '-30px' },
+}
+
+export default function Product({ product }: Tfunc) {
+  const [sliderSettings, setSliderSettings] = useState(defaultSliderSettings);
+
+  useEffect(() => {
+    const changeSLiderProp = () => {
+      if (document.documentElement.clientWidth <= 650) {
+        setSliderSettings({
+          countVisibleSlides: 1,
+          arrowPosition: { top: '10%', margin: '-15px' },
+        })
+      } else {
+        setSliderSettings(defaultSliderSettings)
+      }
+    }
+    addEventListener('resize', changeSLiderProp);
+    changeSLiderProp();
+    return () => removeEventListener('resize', changeSLiderProp);
+  }, [])
+
   return (
     <MainLayout title={product.title}>
       <div className={styles.productPage}>
@@ -48,8 +71,8 @@ export default function product({ product }: Tfunc) {
           {product.slider && (
             <div className={styles.slider_wrapper}>
               <Slider
-                countOfVisibleElements={2}
-                arrowPosition={{ top: '15%', margin: '-30px' }}
+                countOfVisibleElements={sliderSettings.countVisibleSlides}
+                arrowPosition={sliderSettings.arrowPosition}
                 infinity={true}
               >
                 {product.slider.map(({ image, title, descriptions }) => (

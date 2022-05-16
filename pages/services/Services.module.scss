@@ -106,3 +106,14 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 850px) {
+  .sectionPromo {
+    padding: 141px 185px 96px 28px;
+    position: relative;
+  }
+  .sectionContent {
+    padding: 29px 27px;
+  }
+}
+
