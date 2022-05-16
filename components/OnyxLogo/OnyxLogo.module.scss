@@ -1,0 +1,10 @@
+.mainLogo {
+  min-width: 55px;
+  max-width: 155px;
+}
+
+@media screen and (max-width: 450px) {
+  .mainLogo {
+    width: 55px;
+  }
+}

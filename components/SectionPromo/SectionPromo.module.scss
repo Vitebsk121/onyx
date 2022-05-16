@@ -37,10 +37,30 @@
   top: 0;
   left: 0;
   width: 100%;
+  object-fit: cover;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1450px) {
   .curtain {
     padding: 0 100px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .videoBackground {
+    min-height: 347px;
+  }
+
+  .curtain {
+    padding: 0 27px;
+  }
+
+  .title {
+    Line-height: 100%;
+    text-align: Center;
+  }
+
+  .subtitle {
+    text-align: center;
   }
 }

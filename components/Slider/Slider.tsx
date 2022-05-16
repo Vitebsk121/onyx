@@ -131,7 +131,7 @@ const Slider: React.FC<NewSliderProps> = ({
       }
     }, autoScroll.time);
     return () => clearInterval(autoScrollInterval);
-  }, [autoScroll.orientation, autoScroll.time, nextSlide, prevSlide]);
+  }, [autoScroll.orientation, autoScroll.time]);
 
   return (
     <div className={styles.slider}>

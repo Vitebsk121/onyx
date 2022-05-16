@@ -1,0 +1,63 @@
+@import "styles/theme";
+
+.drawer {
+  padding: 26px 17px 120px;
+  width: 320px;
+  height: 100vh;
+  background-color: $color-tertiary;
+  position: absolute;
+  top: 0;
+  right: -320px;
+  transition: all 0.3s ease-in-out;
+
+  &.active {
+    right: 0;
+  }
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+
+  > li {
+    margin-bottom: 40px;
+    color: $color-four;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  .navItem {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $color-four;
+      transform: scale(0);
+      transition: transform .3s ease-out;
+    }
+
+    &:hover:after {
+      transform: scale(1);
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .drawer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    right: -100%;
+    padding: 50px 17px;
+    &.active {
+      right: 0;
+    }
+  }
+}

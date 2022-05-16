@@ -1,3 +1,4 @@
+import styles from './OnyxLogo.module.scss'
 import React from 'react';
 
 type OnyxLogoProps = {
@@ -7,8 +8,8 @@ type OnyxLogoProps = {
 const OnyxLogo: React.FC<OnyxLogoProps> = ({ fill = 'white' }: OnyxLogoProps) => {
   return (
     <svg
-      width="155"
-      height="50"
+      width="100%"
+      className={styles.mainLogo}
       viewBox="0 0 155 50"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

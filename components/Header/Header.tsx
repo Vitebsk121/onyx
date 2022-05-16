@@ -3,12 +3,15 @@ import styles from './Header.module.scss';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import OnyxLogo from '../OnyxLogo/OnyxLogo';
+import BurgerMenu from "../UI/BurgerMenu/BurgerMenu";
+import Drawer from "../UI/Drawer/Drawer";
 
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
   const [logoColor, setLogoColor] = useState('white');
   const [headerStyle, setHeaderStyle] = useState('');
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   useEffect(() => {
     const changeTheme = () => {
@@ -37,6 +40,7 @@ const Header: React.FC<HeaderProps> = () => {
           <OnyxLogo fill={logoColor} />
         </a>
       </Link>
+      <BurgerMenu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} />
       <nav className={styles.nav}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>
@@ -61,6 +65,7 @@ const Header: React.FC<HeaderProps> = () => {
           </li>
         </ul>
       </nav>
+      <Drawer menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} />
     </header>
   );
 };
