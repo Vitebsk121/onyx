@@ -1,6 +1,6 @@
 import styles from './Slider.module.scss';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 import ArrowSVG from '../../public/icons/sliderArrow.svg';
 
@@ -51,15 +51,15 @@ const Slider: React.FC<NewSliderProps> = ({
       : { top: arrowPosition.top, right: arrowPosition.margin };
   };
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (infinity) {
       setSlidesTranslateX((prevState) => prevState + slideWidth());
     } else {
       setSlidesTranslateX((prevState) => (prevState >= 0 ? 0 : prevState + slideWidth()));
     }
-  };
+  }, [infinity]);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (infinity) {
       setSlidesTranslateX((prevState) => prevState - slideWidth());
     } else {
@@ -69,7 +69,7 @@ const Slider: React.FC<NewSliderProps> = ({
           : prevState,
       );
     }
-  };
+  }, [arrOfSlides.length, countOfVisibleElements, infinity]);
 
   useEffect(() => {
     if (!infinity) return;
@@ -131,7 +131,7 @@ const Slider: React.FC<NewSliderProps> = ({
       }
     }, autoScroll.time);
     return () => clearInterval(autoScrollInterval);
-  }, [autoScroll.orientation, autoScroll.time]);
+  }, [autoScroll.orientation, autoScroll.time, nextSlide, prevSlide]);
 
   return (
     <div className={styles.slider}>
