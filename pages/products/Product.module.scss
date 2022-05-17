@@ -61,10 +61,8 @@
   margin-bottom: 50px;
   position: relative;
   width: 100%;
-  min-width: 225px;
   height: 25vw;
   max-height: 460px;
-  min-height: 265px;
 }
 
 .slideTitle {
@@ -84,5 +82,12 @@
   }
   .sectionContent {
     padding: 29px 27px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .slidePic {
+    min-width: 225px;
+    min-height: 265px;
   }
 }

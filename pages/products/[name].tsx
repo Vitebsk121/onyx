@@ -73,7 +73,6 @@ export default function Product({ product }: Tfunc) {
               <Slider
                 countOfVisibleElements={sliderSettings.countVisibleSlides}
                 arrowPosition={sliderSettings.arrowPosition}
-                infinity={true}
               >
                 {product.slider.map(({ image, title, descriptions }) => (
                   <div key={title} className={styles.slide}>
