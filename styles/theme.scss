@@ -35,7 +35,8 @@ $font-size-h2title: calc( (100vw - 320px)/(1600 - 320) * (96 - 40) + 40px);
 $font-size-h3title: calc( (100vw - 320px)/(1600 - 320) * (36 - 16) + 16px);
 $font-size-h4title: calc( (100vw - 320px)/(1600 - 320) * (24 - 15) + 15px);
 $font-size-h5title: calc( (100vw - 320px)/(1600 - 320) * (32 - 20) + 20px);
-$font-size-subtitle: calc( (100vw - 320px)/(1600 - 320) * (17 - 15) + 15px);
+$font-size-subtitle: calc( (100vw - 320px)/(1600 - 320) * (17 - 14) + 14px);
+$font-size-h1subTitle: calc( (100vw - 320px)/(1600 - 320) * (60 - 20) + 20px);
 
 $color-primary: rgb(0,0,0);
 $color-secondary: rgb(255, 255, 255);

@@ -5,7 +5,7 @@ const SectionPromo = () => {
   return (
     <section className={styles.promo}>
       <div className={styles.curtain}>
-        <h1 className={styles.title}>Onyx - драгоценное качество деятельности</h1>
+        <h1 className={styles.title}>O<span>NYX</span> - драгоценное качество деятельности</h1>
         <h3 className={styles.subtitle}>Поставка нерудных материалов</h3>
       </div>
       <video
@@ -15,7 +15,8 @@ const SectionPromo = () => {
         muted
         loop
       >
-        <source src="/kar.mov" />
+        <source src="/kar.webm" />
+        <source src="/kar.mp4" />
       </video>
     </section>
   );
