@@ -45,7 +45,7 @@ const privilegeList = [
   },
   {
     icon: carIcon,
-    title: 'Современная и собственная техника (тягачи MAN, DAF, Scania и полупри-цепы Grunwald)',
+    title: 'Современная и собственная техника (тягачи MAN, DAF, Scania и полуприцепы Grunwald)',
   },
   {
     icon: teamIcon,
