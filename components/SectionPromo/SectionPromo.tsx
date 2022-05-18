@@ -16,6 +16,7 @@ const SectionPromo = () => {
         autoPlay
         muted
         loop
+        playsInline
       >
         <source src="/kar.webm" />
         <source src="/kar.mp4" />
