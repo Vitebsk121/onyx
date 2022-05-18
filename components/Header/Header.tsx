@@ -3,8 +3,8 @@ import styles from './Header.module.scss';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import OnyxLogo from '../OnyxLogo/OnyxLogo';
-import BurgerMenu from "../UI/BurgerMenu/BurgerMenu";
-import Drawer from "../UI/Drawer/Drawer";
+import BurgerMenu from '../UI/BurgerMenu/BurgerMenu';
+import Drawer from '../UI/Drawer/Drawer';
 
 type HeaderProps = {};
 

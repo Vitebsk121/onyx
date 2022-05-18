@@ -1,6 +1,6 @@
 import styles from './Slider.module.scss';
 
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import ArrowSVG from '../../public/icons/sliderArrow.svg';
 
@@ -15,16 +15,16 @@ type NewSliderProps = {
   infinity?: boolean;
   autoScroll?: { time: number; orientation: 'left' | 'right' };
   shadow?: boolean;
-  arrows?: boolean,
+  arrows?: boolean;
   viewportSetting?: {
     viewport: {
-      width: string,
-      overflow: string,
-    },
+      width: string;
+      overflow: string;
+    };
     slider: {
-      overflow: string,
-    },
-  }
+      overflow: string;
+    };
+  };
 };
 
 const arrowPositionDefault = {
@@ -51,7 +51,7 @@ const Slider: React.FC<NewSliderProps> = ({
     slider: {
       overflow: 'visible',
     },
-  }
+  },
 }: NewSliderProps) => {
   const minSwipeDistance = 50;
 
@@ -99,7 +99,6 @@ const Slider: React.FC<NewSliderProps> = ({
     if (!infinity) return;
 
     const range = -(slideWidth() * arrOfSlides.length);
-
 
     if (slidesTranslateX === 0) {
       setTimeout(() => {
@@ -179,7 +178,7 @@ const Slider: React.FC<NewSliderProps> = ({
   return (
     <div
       className={styles.slider}
-      style={{overflow: viewportSetting.slider.overflow}}
+      style={{ overflow: viewportSetting.slider.overflow }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -204,7 +203,13 @@ const Slider: React.FC<NewSliderProps> = ({
           </button>
         </>
       )}
-      <div className={styles.viewport} style={{width: viewportSetting.viewport.width, overflow: viewportSetting.viewport.overflow}}>
+      <div
+        className={styles.viewport}
+        style={{
+          width: viewportSetting.viewport.width,
+          overflow: viewportSetting.viewport.overflow,
+        }}
+      >
         <div
           className={styles.slidesBox}
           style={{

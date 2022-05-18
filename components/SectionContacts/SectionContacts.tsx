@@ -13,7 +13,7 @@ const SectionContacts: React.FC<SectionContactsProps> = () => {
     <section className={styles.contacts} id={'contacts'}>
       <Marquee speed={50} gradient={false}>
         <div className={styles.contactsLogo}>
-          <Image src={ContacrsLogo} alt={'логотип контактов'} layout={'responsive'}/>
+          <Image src={ContacrsLogo} alt={'логотип контактов'} layout={'responsive'} />
         </div>
       </Marquee>
       <div className={styles.contacts_contentWrapper}>

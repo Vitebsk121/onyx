@@ -1,4 +1,4 @@
-import styles from './OnyxLogo.module.scss'
+import styles from './OnyxLogo.module.scss';
 import React from 'react';
 
 type OnyxLogoProps = {

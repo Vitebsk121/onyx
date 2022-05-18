@@ -11,7 +11,7 @@ const SectionAutopark = () => {
     <section className={styles.autopark}>
       <Marquee speed={50} gradient={false}>
         <div className={styles.autoparkLogo}>
-          <Image src={AutoparkLogo} alt={'автопарк логотип'} layout={'responsive'}/>
+          <Image src={AutoparkLogo} alt={'автопарк логотип'} layout={'responsive'} />
         </div>
       </Marquee>
       <div className={styles.wrapper}>
@@ -29,10 +29,10 @@ const SectionAutopark = () => {
               </div>
             ))}
           </Slider>
-          <h4 >
+          <h4>
             Собственный автопарк импортной техники, более 30-ти автомобилей марок MAN и DAF и Scania
           </h4>
-          <h4 >Cобственная ремонтная зона</h4>
+          <h4>Cобственная ремонтная зона</h4>
           <Slider
             countOfVisibleElements={1}
             infinity={true}

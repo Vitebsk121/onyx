@@ -4,7 +4,7 @@ import Link from 'next/link';
 import goodsList from '../../data/goodsList';
 import servicesList from '../../data/servicesList';
 import Slider from '../Slider/Slider';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
 const defaultViewportSettings = {
   viewport: {
@@ -14,7 +14,7 @@ const defaultViewportSettings = {
   slider: {
     overflow: 'visible',
   },
-}
+};
 
 const SectionGoodsAndServices = () => {
   const [adaptiveSliderSettings, setAdaptiveSliderSettings] = useState({
@@ -23,7 +23,7 @@ const SectionGoodsAndServices = () => {
     arrowIsVisible: true,
     shadowIsVisible: true,
     viewportSettings: defaultViewportSettings,
-  })
+  });
 
   useEffect(() => {
     const changeSLiderProp = () => {
@@ -41,8 +41,8 @@ const SectionGoodsAndServices = () => {
             slider: {
               overflow: 'hidden',
             },
-          }
-        })
+          },
+        });
       } else {
         setAdaptiveSliderSettings({
           countVisibleSlidesInGoods: 4,
@@ -50,13 +50,13 @@ const SectionGoodsAndServices = () => {
           arrowIsVisible: true,
           shadowIsVisible: true,
           viewportSettings: defaultViewportSettings,
-        })
+        });
       }
-    }
+    };
     addEventListener('resize', changeSLiderProp);
     changeSLiderProp();
     return () => removeEventListener('resize', changeSLiderProp);
-  }, [])
+  }, []);
   return (
     <div className={styles.goodsAndServices} id={'goodsAndServices'}>
       <h2 className={styles.title}>товары</h2>

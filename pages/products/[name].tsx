@@ -1,5 +1,5 @@
 import styles from './Product.module.scss';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import MainLayout from '../../HOC/MainLayout';
 import goodsList, { IGoods } from '../../data/goodsList';
 import Image from 'next/image';
@@ -12,7 +12,7 @@ type Tfunc = {
 const defaultSliderSettings = {
   countVisibleSlides: 3,
   arrowPosition: { top: '15%', margin: '-30px' },
-}
+};
 
 export default function Product({ product }: Tfunc) {
   const [sliderSettings, setSliderSettings] = useState(defaultSliderSettings);
@@ -23,15 +23,15 @@ export default function Product({ product }: Tfunc) {
         setSliderSettings({
           countVisibleSlides: 1,
           arrowPosition: { top: '10%', margin: '-15px' },
-        })
+        });
       } else {
-        setSliderSettings(defaultSliderSettings)
+        setSliderSettings(defaultSliderSettings);
       }
-    }
+    };
     addEventListener('resize', changeSLiderProp);
     changeSLiderProp();
     return () => removeEventListener('resize', changeSLiderProp);
-  }, [])
+  }, []);
 
   return (
     <MainLayout title={product.title}>
