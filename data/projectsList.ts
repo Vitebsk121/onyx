@@ -1,6 +1,6 @@
 import AutobahnPic from '../public/images/autobahn.png';
-import NorthHordPic from '../public/images/northHord.jpeg';
-import CcadPic from '../public/images/cCAD.jpeg';
+import NorthHordPic from '../public/images/northHord.jpg';
+import CcadPic from '../public/images/cCAD.jpg';
 import ConcreteFactory from '../public/images/concrete_factory.jpeg';
 
 const projectsList = [
