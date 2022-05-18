@@ -45,7 +45,6 @@
 
 .repairInfo {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -97,7 +96,6 @@
 }
 
 .contacts_link {
-  margin-right: 20px;
   margin-bottom: 20px;
 
   opacity: 0.8;
@@ -109,11 +107,22 @@
 
 @media screen and (max-width: 850px) {
   .sectionPromo {
-    padding: 141px 185px 96px 28px;
+    padding: 141px 30px 96px 28px;
     position: relative;
   }
   .sectionContent {
     padding: 29px 27px;
+  }
+  .repairInfo_item {
+    & > p {
+      font-size: 10px;
+    }
+    & > h4 {
+      margin: 0 0 20px 0;
+    }
+  }
+  .contacts > * {
+    font-size: 10px;
   }
 }
 
