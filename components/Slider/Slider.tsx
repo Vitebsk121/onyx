@@ -124,7 +124,7 @@ const Slider: React.FC<NewSliderProps> = ({
 
   useEffect(() => {
     const picked = Math.round(Math.abs(slidesTranslateX / slideWidth()));
-    if (infinity) {
+    if (infinity && autoScroll) {
       if (picked > arrOfSlides.length - 1) {
         setPickedSlideIndex(picked - arrOfSlides.length);
       } else {
@@ -137,8 +137,7 @@ const Slider: React.FC<NewSliderProps> = ({
 
   useEffect(() => {
     if (infinity) {
-      const range = -(slideWidth() * arrOfSlides.length);
-      setSlidesTranslateX(range);
+      setSlidesTranslateX(0);
     }
   }, [slideNode.current?.offsetWidth]);
 
@@ -220,13 +219,24 @@ const Slider: React.FC<NewSliderProps> = ({
         >
           {infinity
             ? Array.prototype.concat(arrOfSlides, arrOfSlides, arrOfSlides).map((slide, index) => (
-                <div
-                  ref={slideNode}
-                  key={index}
-                  style={{ minWidth: `${100 / countOfVisibleElements}%` }}
-                >
-                  {slide}
-                </div>
+              index === 0
+                ? (
+                  <div
+                    ref={slideNode}
+                    key={index}
+                    style={{ minWidth: `${100 / countOfVisibleElements}%` }}
+                  >
+                    {slide}
+                  </div>
+                )
+                : (
+                  <div
+                    key={index}
+                    style={{ minWidth: `${100 / countOfVisibleElements}%` }}
+                  >
+                    {slide}
+                  </div>
+                )
               ))
             : arrOfSlides.map((slide, index) => (
                 <div
