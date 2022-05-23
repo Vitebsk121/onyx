@@ -8,6 +8,7 @@
   position: absolute;
   top: 0;
   right: -320px;
+  opacity: .96;
   transition: all 0.3s ease-in-out;
 
   &.active {
@@ -53,8 +54,8 @@
   .drawer {
     display: flex;
     justify-content: center;
-    width: 100%;
-    right: -100%;
+    width: 70%;
+    right: -70%;
     padding: 50px 17px;
     &.active {
       right: 0;
