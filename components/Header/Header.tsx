@@ -5,7 +5,7 @@ import Link from 'next/link';
 import OnyxLogo from '../OnyxLogo/OnyxLogo';
 import BurgerMenu from '../UI/BurgerMenu/BurgerMenu';
 import Drawer from '../UI/Drawer/Drawer';
-import Backdrop from "../UI/Backdrop/Backdrop";
+import Backdrop from '../UI/Backdrop/Backdrop';
 
 type HeaderProps = {};
 

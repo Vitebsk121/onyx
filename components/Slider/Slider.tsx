@@ -218,9 +218,8 @@ const Slider: React.FC<NewSliderProps> = ({
           ref={slideBoxNode}
         >
           {infinity
-            ? Array.prototype.concat(arrOfSlides, arrOfSlides, arrOfSlides).map((slide, index) => (
-              index === 0
-                ? (
+            ? Array.prototype.concat(arrOfSlides, arrOfSlides, arrOfSlides).map((slide, index) =>
+                index === 0 ? (
                   <div
                     ref={slideNode}
                     key={index}
@@ -228,16 +227,12 @@ const Slider: React.FC<NewSliderProps> = ({
                   >
                     {slide}
                   </div>
-                )
-                : (
-                  <div
-                    key={index}
-                    style={{ minWidth: `${100 / countOfVisibleElements}%` }}
-                  >
+                ) : (
+                  <div key={index} style={{ minWidth: `${100 / countOfVisibleElements}%` }}>
                     {slide}
                   </div>
-                )
-              ))
+                ),
+              )
             : arrOfSlides.map((slide, index) => (
                 <div
                   ref={slideNode}
