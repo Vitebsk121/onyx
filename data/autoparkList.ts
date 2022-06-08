@@ -1,18 +1,16 @@
-import Track from '../public/images/truck1.png';
-import Driver from '../public/images/driver1.png';
+import Autopark_pic1 from '../public/images/autopark_pic1.jpg';
+import Autopark_pic2 from '../public/images/autopark_pic2.jpg';
+import Autopark_pic3 from '../public/images/autopark_pic3.jpg';
 
 const autoparkList = [
   {
-    image: Track,
+    image: Autopark_pic1,
   },
   {
-    image: Driver,
+    image: Autopark_pic2,
   },
   {
-    image: Driver,
-  },
-  {
-    image: Track,
+    image: Autopark_pic3,
   },
 ];
 

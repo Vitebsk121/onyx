@@ -5,6 +5,7 @@ import AutoparkLogo from '../../public/autopark.svg';
 import React from 'react';
 import autoparkList from '../../data/autoparkList';
 import Slider from '../Slider/Slider';
+import servicePhotosList from "../../data/servicePhotosList";
 
 const SectionAutopark = () => {
   return (
@@ -40,7 +41,7 @@ const SectionAutopark = () => {
             autoScroll={{ time: 3000, orientation: 'left' }}
             arrows={false}
           >
-            {autoparkList.map(({ image }, index) => (
+            {servicePhotosList.map(({ image }, index) => (
               <div key={index} className={styles.slide}>
                 <Image src={image} alt="truck" layout={'fill'} objectFit={'cover'} />
               </div>
