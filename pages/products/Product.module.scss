@@ -1,0 +1,93 @@
+@import "styles/theme";
+
+.productPage {
+  background-color: $color-primary;
+}
+
+.sectionPromo {
+  padding: 332px 1109px 240px 200px;
+  position: relative;
+}
+
+.sectionBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.productPage_title {
+  font-family: $font-family-bold;
+  font-size: $font-size-h1title;
+  color: $color-secondary;
+  position: relative;
+  z-index: 100;
+}
+
+.sectionContent {
+  padding: 125px 200px;
+  font-family: $font-family-medium;
+  font-size: $font-size-main;
+  color: $color-secondary;
+
+  & > * {
+    margin-bottom: 20px;
+  }
+}
+
+.content_title {
+  font-family: $font-family-semiBold;
+  font-size: $font-size-h4title;
+}
+
+.contentCategoriesList {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.slider_wrapper {
+  padding-top: 60px;
+}
+
+.slide {
+  padding: 0 20px;
+  width: 100%;
+}
+
+.slidePic {
+  margin-bottom: 50px;
+  position: relative;
+  width: 100%;
+  height: 25vw;
+  max-height: 460px;
+}
+
+.slideTitle {
+  margin-bottom: 25px;
+  font-family: $font-family-semiBold;
+  font-size: $font-size-h4title;
+}
+
+.slideDescription {
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 850px) {
+  .sectionPromo {
+    padding: 141px 185px 96px 28px;
+    position: relative;
+  }
+  .sectionContent {
+    padding: 29px 27px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .slidePic {
+    min-width: 225px;
+    min-height: 265px;
+  }
+}

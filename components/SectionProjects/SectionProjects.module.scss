@@ -1,0 +1,77 @@
+@import "styles/theme";
+
+.projects {
+  padding: 80px 0 180px 0;
+}
+
+.projectsLogo {
+  width: 123vw;
+  min-width: 810px;
+  position: relative;
+}
+
+.wrapper {
+  margin-bottom: 40px;
+  padding: 84px 200px 0;
+}
+
+.projects_title {
+  padding-left: 20px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+  font-family: $font-family-bold;
+  font-size: $font-size-h5title;
+  color: $color-tertiary;
+}
+
+.slide {
+  padding: 0 20px;
+}
+
+.cardPic {
+  margin-bottom: 50px;
+  position: relative;
+  width: 100%;
+  height: 30vw;
+  max-height: 460px;
+  min-height: 296px;
+}
+
+.cardTitle {
+  margin-bottom: 27px;
+  font-family: $font-family-semiBold;
+  font-size: $font-size-h4title;
+}
+
+.cardDescription {
+  font-family: $font-family-regular;
+}
+
+.partnersItem {
+  margin: 0 10px;
+  position: relative;
+  width: 20vw;
+  height: 10vw;
+  max-width: 293px;
+  max-height: 136px;
+}
+
+@media screen and (max-width: 1450px){
+  .wrapper {
+    padding: 84px 100px 0;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .projects {
+    padding: 50px 0 50px 0;
+  }
+  .wrapper {
+    padding: 55px 24px 0;
+  }
+  .projects_title {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 23px;
+  }
+}

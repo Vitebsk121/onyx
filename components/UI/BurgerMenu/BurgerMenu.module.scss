@@ -1,0 +1,58 @@
+@import "styles/theme";
+
+.burgerMenu {
+  display: none;
+  width: 27px;
+  height: 18px;
+  padding: 3px;
+  background-color: $color-tertiary;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 100;
+
+  &.active {
+    background-color: $color-four;
+    transform: translateX(50px);
+  }
+}
+
+.burgerMenu_lineWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.burgerMenu_line {
+  width: 100%;
+  height: 2px;
+  background-color: $color-four;
+  margin-bottom: 3px;
+  transition: background-color 0.3s ease-in-out;
+
+  &.active {
+    background-color: $color-tertiary;
+  }
+
+}
+
+.lineTwo {
+  width: 80%;
+}
+
+@media screen and (max-width: 1024px) {
+  .burgerMenu {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .burgerMenu {
+    &.active {
+      transform: none;
+    }
+  }
+}

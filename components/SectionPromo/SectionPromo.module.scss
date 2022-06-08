@@ -1,0 +1,118 @@
+@import "styles/theme";
+
+.promo {
+  position: relative;
+}
+
+.title {
+  margin-bottom: 8px;
+  max-width: 880px;
+  font-family: $font-family-bold;
+  color: $color-tertiary;
+  font-size: $font-size-h1title;
+  line-height: 92.85px;
+
+  & > span {
+    font-size: $font-size-h1subTitle;
+
+  }
+}
+
+.subtitle {
+  font-size: $font-size-h3title;
+  color: $color-secondary;
+  max-width: 880px;
+
+  & > sup {
+    font-size: $font-size-subtitle;
+  }
+}
+
+.companyInfo {
+  padding-top: 30px;
+  display: flex;
+}
+
+.companyInfo__item {
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: $color-secondary;
+  position: relative;
+
+  & > h3 {
+    font-family: $font-family-bold;
+    font-size: $font-size-counterTitle;
+  }
+
+  & > h4 {
+    font-size: $font-size-counterSubTitle;
+    white-space: pre-line;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    height: 100%;
+    width: 1px;
+    background-color: white;
+  }
+
+  &:last-child:after {
+    content: none;
+  }
+}
+
+.curtain {
+  padding: 0 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 99%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.7);
+}
+
+
+.videoBackground {
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1450px) {
+  .curtain {
+    padding: 0 100px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .videoBackground {
+    min-height: 347px;
+  }
+
+  .curtain {
+    padding: 0 27px;
+  }
+
+  .title {
+    Line-height: 100%;
+    text-align: Center;
+  }
+
+  .subtitle {
+    text-align: center;
+  }
+
+  .companyInfo__item {
+    margin: 0 20px
+  }
+}

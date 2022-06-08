@@ -1,0 +1,49 @@
+@import "theme";
+
+html,
+body,
+h1,
+h3,
+h4,
+h5,
+p, {
+  padding: 0;
+  margin: 0;
+
+}
+
+body {
+  font-family: $font-family-medium;
+  font-size: $font-size-main;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  > li {
+    width: fit-content;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#__next {
+  overflow: hidden;
+  position: relative;
+}
+
+//__________________________________
