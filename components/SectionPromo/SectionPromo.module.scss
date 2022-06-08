@@ -21,6 +21,47 @@
   font-size: $font-size-h3title;
   color: $color-secondary;
   max-width: 880px;
+
+  & > sup {
+    font-size: $font-size-subtitle;
+  }
+}
+
+.companyInfo {
+  padding-top: 30px;
+  display: flex;
+}
+
+.companyInfo__item {
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: $color-secondary;
+  position: relative;
+
+  & > h3 {
+    font-family: $font-family-bold;
+  }
+
+  & > h4 {
+    font-size: $font-size-subtitle;
+    white-space: pre-line;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    height: 100%;
+    width: 1px;
+    background-color: white;
+  }
+
+  &:last-child:after {
+    content: none;
+  }
 }
 
 .curtain {

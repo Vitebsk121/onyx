@@ -1,5 +1,10 @@
 import styles from './SectionPromo.module.scss';
 import React from 'react';
+import AutoCounter from '../AutoCounter/AutoCounter';
+
+const defaultCountOfDelivery = 103820;
+const defaultCountOfVolume = 1455475;
+const defaultCountOfWeight = 2391108;
 
 const SectionPromo = () => {
   return (
@@ -9,6 +14,29 @@ const SectionPromo = () => {
           O<span>NYX</span> - драгоценное качество деятельности
         </h1>
         <h3 className={styles.subtitle}>Поставка нерудных материалов</h3>
+        <div className={styles.companyInfo}>
+          <div className={styles.companyInfo__item}>
+            <h3 className={styles.subtitle}>
+              <AutoCounter defaultCount={defaultCountOfDelivery} durationMS={1000} />
+            </h3>
+            <h4>
+              рейсов совершила {'\n'}
+              наша компания
+            </h4>
+          </div>
+          <div className={styles.companyInfo__item}>
+            <h3 className={styles.subtitle}>
+              <AutoCounter defaultCount={defaultCountOfVolume} durationMS={1000} />м<sup>3</sup>
+            </h3>
+            <h4>различных материалов</h4>
+          </div>
+          <div className={styles.companyInfo__item}>
+            <h3 className={styles.subtitle}>
+              <AutoCounter defaultCount={defaultCountOfWeight} durationMS={1000} />
+            </h3>
+            <h4>тонн перевезли</h4>
+          </div>
+        </div>
       </div>
       <video
         className={styles.videoBackground}
