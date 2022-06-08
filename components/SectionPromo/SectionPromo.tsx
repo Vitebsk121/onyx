@@ -26,7 +26,7 @@ const SectionPromo = () => {
           </div>
           <div className={styles.companyInfo__item}>
             <h3 className={styles.subtitle}>
-              <AutoCounter defaultCount={defaultCountOfVolume} durationMS={1000} />м<sup>3</sup>
+              <AutoCounter defaultCount={defaultCountOfVolume} durationMS={1000} /> м<sup>3</sup>
             </h3>
             <h4>различных материалов</h4>
           </div>
