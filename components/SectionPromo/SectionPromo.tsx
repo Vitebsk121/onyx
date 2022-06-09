@@ -17,7 +17,7 @@ const SectionPromo = () => {
         <div className={styles.companyInfo}>
           <div className={styles.companyInfo__item}>
             <h3 className={styles.subtitle}>
-              <AutoCounter defaultCount={defaultCountOfDelivery} durationMS={1000} />
+              <AutoCounter defaultCount={defaultCountOfDelivery} durationMS={2000} />
             </h3>
             <h4>
               рейсов совершила {'\n'}
@@ -26,10 +26,10 @@ const SectionPromo = () => {
           </div>
           <div className={styles.companyInfo__item}>
             <h3 className={styles.subtitle}>
-              <AutoCounter defaultCount={defaultCountOfVolume} durationMS={1000} /> м<sup>3</sup>
+              <AutoCounter defaultCount={defaultCountOfVolume} durationMS={2000} /> м<sup>3</sup>
             </h3>
             <h3 className={styles.subtitle}>
-              <AutoCounter defaultCount={defaultCountOfWeight} durationMS={1000} /> т
+              <AutoCounter defaultCount={defaultCountOfWeight} durationMS={2000} /> т
             </h3>
             <h4>
               различных материалов перевезла {'\n'}

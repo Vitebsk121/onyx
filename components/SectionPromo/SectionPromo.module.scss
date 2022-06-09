@@ -51,15 +51,11 @@
     white-space: pre-line;
   }
 
-  & > div {
-    display: flex;
-  }
-
   &:after {
     content: '';
     position: absolute;
     top: 0;
-    right: -17px;
+    right: -20px;
     height: 100%;
     width: 1px;
     background-color: white;
@@ -116,7 +112,15 @@
     text-align: center;
   }
 
+  .companyInfo {
+    justify-content: center;
+  }
+
   .companyInfo__item {
-    margin: 0 16px
+    margin: 0 10px;
+
+    &:after {
+      right: -10px;
+    }
   }
 }
