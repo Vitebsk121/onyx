@@ -12,7 +12,7 @@ const AutoCounter: React.FC<AutoCounterProps> = ({
   durationMS,
 }: AutoCounterProps) => {
   const [count, setCount] = useState(0);
-  const defaultDelay = 10;
+  const defaultDelay = 50;
   const divider = durationMS / defaultDelay;
 
   function format(value: number) {

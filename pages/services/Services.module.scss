@@ -32,6 +32,8 @@
   font-family: $font-family-medium;
   font-size: $font-size-main;
   color: $color-secondary;
+  display: flex;
+  flex-direction: column;
 
   & > * {
     margin-bottom: 20px;
